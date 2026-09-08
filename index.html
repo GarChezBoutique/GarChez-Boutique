@@ -164,7 +164,7 @@ nav{
 }
 
 /* =========================
-   HERO / PORTADA
+   HERO
 ========================= */
 
 .hero{
@@ -791,20 +791,18 @@ footer{
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
-
 <header>
 
   <div class="header-top">
 
     <a href="#inicio">
+
       <img
         class="logo"
         src="logo%20garchez.jpeg"
         alt="GarChéz Boutique"
       >
+
     </a>
 
     <div class="search">
@@ -842,83 +840,49 @@ footer{
     <div class="nav-inner">
 
       <a href="#inicio">Inicio</a>
-
       <a href="#catalogo">Catálogo</a>
 
-      <a
-        href="#catalogo"
-        onclick="filterCategory('Damas')"
-      >
+      <a href="#catalogo" onclick="filterCategory('Damas')">
         Damas
       </a>
 
-      <a
-        href="#catalogo"
-        onclick="filterCategory('Caballeros')"
-      >
+      <a href="#catalogo" onclick="filterCategory('Caballeros')">
         Caballeros
       </a>
 
-      <a
-        href="#catalogo"
-        onclick="filterCategory('Calzado')"
-      >
+      <a href="#catalogo" onclick="filterCategory('Calzado')">
         Calzado
       </a>
 
-      <a
-        href="#catalogo"
-        onclick="filterCategory('Bolsos')"
-      >
+      <a href="#catalogo" onclick="filterCategory('Bolsos')">
         Bolsos
       </a>
 
-      <a
-        href="#catalogo"
-        onclick="filterCategory('Gorras y Sombreros')"
-      >
+      <a href="#catalogo" onclick="filterCategory('Gorras y Sombreros')">
         Gorras y Sombreros
       </a>
 
-      <a
-        href="#catalogo"
-        onclick="filterCategory('Relojes')"
-      >
+      <a href="#catalogo" onclick="filterCategory('Relojes')">
         Relojes
       </a>
 
-      <a
-        href="#catalogo"
-        onclick="filterCategory('Accesorios')"
-      >
+      <a href="#catalogo" onclick="filterCategory('Accesorios')">
         Accesorios
       </a>
 
-      <a
-        href="#catalogo"
-        onclick="filterCategory('Temporada')"
-      >
+      <a href="#catalogo" onclick="filterCategory('Temporada')">
         Temporada
       </a>
 
-      <a
-        href="#catalogo"
-        onclick="filterCategory('Hogar')"
-      >
+      <a href="#catalogo" onclick="filterCategory('Hogar')">
         Hogar
       </a>
 
-      <a
-        href="#catalogo"
-        onclick="filterCategory('Lo Nuevo')"
-      >
+      <a href="#catalogo" onclick="filterCategory('Lo Nuevo')">
         Lo Nuevo
       </a>
 
-      <a
-        href="#catalogo"
-        onclick="filterCategory('Ofertas')"
-      >
+      <a href="#catalogo" onclick="filterCategory('Ofertas')">
         Ofertas
       </a>
 
@@ -927,10 +891,6 @@ footer{
   </nav>
 
 </header>
-
-<!-- =========================
-     MAIN
-========================= -->
 
 <main id="inicio">
 
@@ -1086,10 +1046,6 @@ footer{
 
 </main>
 
-<!-- =========================
-     MODAL PRODUCTO
-========================= -->
-
 <div
   class="modal"
   id="productModal"
@@ -1159,10 +1115,6 @@ footer{
 
 </div>
 
-<!-- =========================
-     CARRITO
-========================= -->
-
 <div
   class="overlay"
   id="overlay"
@@ -1219,10 +1171,6 @@ footer{
 
 </aside>
 
-<!-- =========================
-     WHATSAPP
-========================= -->
-
 <a
   class="whatsapp"
   href="https://wa.me/50587961399"
@@ -1237,10 +1185,6 @@ footer{
   >
 
 </a>
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer>
 
@@ -1280,14 +1224,12 @@ footer{
       </h3>
 
       <ul>
-
         <li>Damas</li>
         <li>Caballeros</li>
         <li>Calzado</li>
         <li>Bolsos</li>
         <li>Accesorios</li>
         <li>Relojes</li>
-
       </ul>
 
     </div>
@@ -1299,12 +1241,10 @@ footer{
       </h3>
 
       <ul>
-
         <li>🛍️ Carrito</li>
         <li>💬 WhatsApp</li>
         <li>🚚 Envíos</li>
         <li>🇳🇮 Nicaragua</li>
-
       </ul>
 
     </div>
@@ -1333,9 +1273,6 @@ const RAW_BASE =
 
 const DATA_BASE =
   RAW_BASE + "data/";
-
-const ASSETS_BASE =
-  RAW_BASE + "assets/";
 
 const SOURCES = [
 
@@ -1558,42 +1495,56 @@ function normalizeProduct(
 
 /* =========================
    IMÁGENES CMS
+   CORREGIDO
 ========================= */
 
-function convertImagePath(
-  path
-){
+function convertImagePath(path){
 
   if(!path){
-
     return "";
-
   }
 
   const value =
     String(path).trim();
 
-  if(
-    value.startsWith("http://") ||
-    value.startsWith("https://")
-  ){
-
+  if(/^https?:\/\//i.test(value)){
     return value;
-
   }
 
-  if(value.startsWith("/")){
+  if(value.startsWith("/assets/")){
 
-    return (
-      ASSETS_BASE +
+    const filename =
       value
-        .replace(/^\/+/,"")
+        .slice("/assets/".length)
         .split("/")
         .map(
           part =>
             encodeURIComponent(part)
         )
-        .join("/")
+        .join("/");
+
+    return (
+      RAW_BASE +
+      "assets/" +
+      filename
+    );
+
+  }
+
+  if(value.startsWith("assets/")){
+
+    const filename =
+      value
+        .split("/")
+        .map(
+          part =>
+            encodeURIComponent(part)
+        )
+        .join("/");
+
+    return (
+      RAW_BASE +
+      filename
     );
 
   }
@@ -1656,41 +1607,29 @@ function renderProducts(){
                 src="${escapeHTML(product.image)}"
                 alt="${escapeHTML(product.name)}"
                 loading="lazy"
-                onerror="this.src='logo%20garchez.jpeg'"
+                onerror="this.onerror=null;this.src='logo%20garchez.jpeg'"
               >
 
               <div class="product-info">
 
                 <div class="product-category">
-
-                  ${escapeHTML(
-                    product.category
-                  )}
-
+                  ${escapeHTML(product.category)}
                 </div>
 
                 <div class="product-name">
-
-                  ${escapeHTML(
-                    product.name
-                  )}
-
+                  ${escapeHTML(product.name)}
                 </div>
 
                 <div class="price">
 
-                  ${formatPrice(
-                    product.price
-                  )}
+                  ${formatPrice(product.price)}
 
                   ${
                     product.oldPrice
                     ?
                     `
                       <span class="old-price">
-                        ${formatPrice(
-                          product.oldPrice
-                        )}
+                        ${formatPrice(product.oldPrice)}
                       </span>
                     `
                     :
@@ -1886,19 +1825,21 @@ function openProduct(
       "modalImage"
     );
 
-  image.src =
-    product.image;
-
-  image.alt =
-    product.name;
-
   image.onerror =
     function(){
+
+      this.onerror = null;
 
       this.src =
         "logo%20garchez.jpeg";
 
     };
+
+  image.src =
+    product.image;
+
+  image.alt =
+    product.name;
 
   document.getElementById(
     "modalCategory"
@@ -2307,28 +2248,20 @@ function updateCart(){
             <div class="cart-item">
 
               <img
-                src="${escapeHTML(
-                  item.image
-                )}"
-                alt="${escapeHTML(
-                  item.name
-                )}"
-                onerror="this.src='logo%20garchez.jpeg'"
+                src="${escapeHTML(item.image)}"
+                alt="${escapeHTML(item.name)}"
+                onerror="this.onerror=null;this.src='logo%20garchez.jpeg'"
               >
 
               <div>
 
                 <h4>
-                  ${escapeHTML(
-                    item.name
-                  )}
+                  ${escapeHTML(item.name)}
                 </h4>
 
                 <div class="cart-item-price">
 
-                  ${formatPrice(
-                    item.price
-                  )}
+                  ${formatPrice(item.price)}
 
                 </div>
 
@@ -2444,244 +2377,3 @@ function formatPrice(
 ){
 
   if(
-    value === undefined ||
-    value === null ||
-    value === ""
-  ){
-
-    return "Consultar";
-
-  }
-
-  const text =
-    String(
-      value
-    ).trim();
-
-  if(
-    text === "..." ||
-    text === "...."
-  ){
-
-    return "Consultar";
-
-  }
-
-  if(
-    /[a-zA-Z]/.test(text) &&
-    !/C\$/i.test(text)
-  ){
-
-    return escapeHTML(
-      text
-    );
-
-  }
-
-  const number =
-    parsePrice(
-      text
-    );
-
-  if(number){
-
-    return (
-      "C$" +
-      number.toLocaleString(
-        "es-NI"
-      )
-    );
-
-  }
-
-  return escapeHTML(
-    text
-  );
-
-}
-
-/* =========================
-   WHATSAPP CARRITO
-========================= */
-
-function checkoutWhatsApp(){
-
-  if(!cart.length){
-
-    alert(
-      "Tu carrito está vacío."
-    );
-
-    return;
-
-  }
-
-  let message =
-
-`Hola, GarChéz Boutique 👋
-
-Quiero realizar este pedido:
-
-`;
-
-  cart.forEach(
-    item => {
-
-      message +=
-
-`🛍️ ${item.name}
-Cantidad: ${item.quantity}
-Precio: ${formatPrice(item.price)}
-
-`;
-
-    }
-  );
-
-  message +=
-
-`💰 Total aproximado: C$${cartTotal().toLocaleString("es-NI")}
-
-🚚 Envíos a toda 🇳🇮 Nicaragua.
-📍 Envío GRATIS en Chinandega y El Viejo 🇳🇮
-
-Quedo pendiente de la confirmación.`;
-
-  window.open(
-
-    "https://wa.me/" +
-    PHONE +
-    "?text=" +
-    encodeURIComponent(
-      message
-    ),
-
-    "_blank"
-
-  );
-
-}
-
-/* =========================
-   ABRIR CARRITO
-========================= */
-
-function openCart(){
-
-  document
-    .getElementById(
-      "cartDrawer"
-    )
-    .classList.add(
-      "open"
-    );
-
-  document
-    .getElementById(
-      "overlay"
-    )
-    .classList.add(
-      "show"
-    );
-
-}
-
-/* =========================
-   CERRAR CARRITO
-========================= */
-
-function closeCart(){
-
-  document
-    .getElementById(
-      "cartDrawer"
-    )
-    .classList.remove(
-      "open"
-    );
-
-  document
-    .getElementById(
-      "overlay"
-    )
-    .classList.remove(
-      "show"
-    );
-
-}
-
-/* =========================
-   UTILIDADES
-========================= */
-
-function normalizeText(
-  text
-){
-
-  return String(
-    text || ""
-  )
-    .toLowerCase()
-    .normalize(
-      "NFD"
-    )
-    .replace(
-      /[\u0300-\u036f]/g,
-      ""
-    )
-    .trim();
-
-}
-
-function escapeHTML(
-  value
-){
-
-  return String(
-    value || ""
-  )
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-    .replace(
-      /</g,
-      "&lt;"
-    )
-    .replace(
-      />/g,
-      "&gt;"
-    )
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-    .replace(
-      /'/g,
-      "&#039;"
-    );
-
-}
-
-function escapeJS(
-  value
-){
-
-  return String(
-    value || ""
-  )
-    .replace(
-      /\\/g,
-      "\\\\"
-    )
-    .replace(
-      /'/g,
-      "\\'"
-    );
-
-}
-
-</script>
-
-</body>
-</html>
