@@ -4,29 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GarChéz Boutique | Moda en Nicaragua</title>
+<title>GarChéz Boutique | Moda y Estilo en Nicaragua 🇳🇮</title>
 
-<meta
-  name="description"
-  content="GarChéz Boutique. Moda, calzado, bolsos y accesorios. Envíos a toda 🇳🇮 Nicaragua."
->
+<meta name="description"
+content="GarChéz Boutique. Moda, calzado, bolsos, accesorios y más. Envíos a toda Nicaragua 🇳🇮.">
 
 <style>
-:root{
-  --black:#111;
-  --dark:#181818;
-  --cream:#f8f5f1;
-  --white:#fff;
-  --gold:#b59663;
-  --gray:#777;
-  --line:#e8e3dd;
-  --green:#25D366;
-}
 
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
+}
+
+:root{
+  --negro:#111111;
+  --blanco:#ffffff;
+  --gris:#f5f5f5;
+  --gris2:#777;
+  --borde:#e5e5e5;
+  --verde:#25D366;
+  --verde-dark:#128C7E;
+  --rojo:#d62828;
+  --sombra:0 8px 25px rgba(0,0,0,.08);
 }
 
 html{
@@ -36,72 +36,64 @@ html{
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:#fff;
-  color:var(--black);
-}
-
-button,
-input{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
+  color:var(--negro);
 }
 
 /* =========================
    HEADER
 ========================= */
 
-header{
+.header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(255,255,255,.97);
-  border-bottom:1px solid var(--line);
-  backdrop-filter:blur(12px);
+  background:#fff;
+  border-bottom:1px solid var(--borde);
 }
 
 .header-top{
-  max-width:1400px;
-  margin:auto;
-  min-height:82px;
-  padding:12px 25px;
+  min-height:72px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:25px;
+  gap:20px;
+  padding:8px 5%;
 }
 
 .logo{
   width:120px;
   height:55px;
   object-fit:contain;
-  object-position:center;
   display:block;
 }
 
-.search{
+.search-box{
   flex:1;
-  max-width:520px;
+  max-width:550px;
+  position:relative;
 }
 
-.search input{
+.search-box input{
   width:100%;
+  height:44px;
   border:1px solid #ddd;
-  border-radius:30px;
-  padding:13px 20px;
+  border-radius:25px;
+  padding:0 45px 0 18px;
+  font-size:15px;
   outline:none;
   background:#fafafa;
 }
 
-.search input:focus{
-  border-color:#aaa;
+.search-box input:focus{
+  border-color:#999;
   background:#fff;
+}
+
+.search-icon{
+  position:absolute;
+  right:16px;
+  top:12px;
+  font-size:19px;
 }
 
 .header-actions{
@@ -110,57 +102,78 @@ header{
   gap:10px;
 }
 
-.header-btn{
-  border:1px solid #ddd;
-  background:#fff;
-  padding:11px 15px;
-  border-radius:25px;
-  display:flex;
-  align-items:center;
-  gap:7px;
-  transition:.2s;
-}
-
-.header-btn:hover{
-  background:#111;
-  color:#fff;
+.icon-button{
+  border:0;
+  background:#f5f5f5;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:20px;
+  position:relative;
 }
 
 .cart-count{
-  min-width:22px;
-  height:22px;
+  position:absolute;
+  top:-4px;
+  right:-3px;
+  min-width:19px;
+  height:19px;
   border-radius:50%;
   background:#111;
   color:#fff;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  font-size:12px;
-}
-
-nav{
-  border-top:1px solid #f0ece7;
-}
-
-.nav-inner{
-  max-width:1400px;
-  margin:auto;
-  padding:0 25px;
+  font-size:11px;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:5px;
+  font-weight:bold;
+}
+
+/* =========================
+   NAVEGACIÓN
+========================= */
+
+.nav{
+  border-top:1px solid #f2f2f2;
   overflow-x:auto;
-}
-
-.nav-inner a{
-  padding:14px 13px;
-  font-size:14px;
   white-space:nowrap;
+  padding:0 4%;
 }
 
-.nav-inner a:hover{
-  color:var(--gold);
+.nav::-webkit-scrollbar{
+  height:0;
+}
+
+.nav-list{
+  display:flex;
+  justify-content:center;
+  min-width:max-content;
+}
+
+.nav-button{
+  border:0;
+  background:transparent;
+  padding:14px 13px;
+  font-size:13px;
+  font-weight:bold;
+  cursor:pointer;
+  color:#333;
+  position:relative;
+}
+
+.nav-button:hover,
+.nav-button.active{
+  color:#000;
+}
+
+.nav-button.active::after{
+  content:"";
+  position:absolute;
+  left:12px;
+  right:12px;
+  bottom:5px;
+  height:2px;
+  background:#111;
 }
 
 /* =========================
@@ -168,96 +181,119 @@ nav{
 ========================= */
 
 .hero{
-  min-height:500px;
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.08),
-      rgba(0,0,0,.03)
-    ),
-    url("./portada.png");
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width:100%;
+  background:#eee;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero img{
+  width:100%;
+  display:block;
+  max-height:560px;
+  object-fit:cover;
 }
 
 .hero-content{
-  width:100%;
-  max-width:1400px;
-  min-height:500px;
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-end;
+  justify-content:flex-start;
+  padding:40px 6%;
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,.45),
+    transparent 55%
+  );
 }
 
-/* =========================
-   BENEFICIOS
-========================= */
-
-.benefits{
-  background:#111;
+.hero-text{
   color:#fff;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
+  max-width:550px;
 }
 
-.benefit{
-  padding:20px;
-  text-align:center;
-  border-right:1px solid rgba(255,255,255,.15);
-  font-size:14px;
-}
-
-.benefit:last-child{
-  border-right:0;
-}
-
-/* =========================
-   CATALOGO
-========================= */
-
-.catalog{
-  max-width:1400px;
-  margin:auto;
-  padding:65px 25px;
-}
-
-.section-head{
-  text-align:center;
-  margin-bottom:30px;
-}
-
-.section-head h1{
-  font-family:Georgia,serif;
-  font-size:36px;
+.hero-text h1{
+  font-size:clamp(27px,5vw,55px);
   margin-bottom:10px;
 }
 
-.section-head p{
-  color:var(--gray);
+.hero-text p{
+  font-size:17px;
 }
 
-.filters{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-bottom:35px;
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.info-strip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:#ddd;
+  border-bottom:1px solid #ddd;
 }
 
-.filter{
-  border:1px solid #ddd;
+.info-item{
   background:#fff;
-  padding:10px 17px;
-  border-radius:25px;
-  transition:.2s;
+  padding:17px 12px;
+  text-align:center;
 }
 
-.filter:hover,
-.filter.active{
-  background:#111;
-  color:#fff;
-  border-color:#111;
+.info-item strong{
+  display:block;
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+.info-item span{
+  font-size:12px;
+  color:#666;
+}
+
+/* =========================
+   CATÁLOGO
+========================= */
+
+.catalog{
+  padding:45px 5%;
+}
+
+.catalog-head{
+  text-align:center;
+  margin-bottom:28px;
+}
+
+.catalog-head h2{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.catalog-head p{
+  color:#777;
+  font-size:14px;
+}
+
+.results-info{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+  gap:15px;
+}
+
+.results-info span{
+  color:#666;
+  font-size:14px;
+}
+
+.clear-filter{
+  border:1px solid #ccc;
+  background:#fff;
+  padding:8px 13px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:12px;
 }
 
 /* =========================
@@ -266,319 +302,200 @@ nav{
 
 .products{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:25px;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:22px;
 }
 
-.product{
-  border:1px solid var(--line);
+.product-card{
   background:#fff;
+  border:1px solid #e9e9e9;
+  border-radius:10px;
   overflow:hidden;
-  position:relative;
   transition:.25s;
+  position:relative;
 }
 
-.product:hover{
+.product-card:hover{
   transform:translateY(-4px);
-  box-shadow:0 12px 30px rgba(0,0,0,.08);
+  box-shadow:var(--sombra);
 }
 
-.product-img{
+.product-image-wrap{
+  position:relative;
+  aspect-ratio:1/1;
+  background:#f7f7f7;
+  overflow:hidden;
+  cursor:pointer;
+}
+
+.product-image{
   width:100%;
-  aspect-ratio:1/1.08;
+  height:100%;
   object-fit:cover;
-  background:#f5f5f5;
   display:block;
+  transition:.3s;
+}
+
+.product-card:hover .product-image{
+  transform:scale(1.03);
+}
+
+.offer-badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:#111;
+  color:#fff;
+  padding:6px 9px;
+  border-radius:4px;
+  font-size:11px;
+  font-weight:bold;
 }
 
 .product-info{
-  padding:17px;
+  padding:14px;
 }
 
 .product-category{
-  font-size:11px;
+  font-size:10px;
   text-transform:uppercase;
-  letter-spacing:1px;
-  color:#999;
-  margin-bottom:7px;
+  color:#888;
+  margin-bottom:5px;
 }
 
 .product-name{
-  font-size:16px;
-  font-weight:600;
-  margin-bottom:10px;
-  line-height:1.35;
+  font-size:15px;
+  font-weight:bold;
+  margin-bottom:9px;
+  min-height:36px;
+  line-height:1.3;
+}
+
+.price-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:12px;
 }
 
 .price{
-  font-size:19px;
+  font-size:18px;
   font-weight:bold;
 }
 
 .old-price{
+  font-size:13px;
   color:#999;
   text-decoration:line-through;
-  margin-left:7px;
-  font-size:14px;
 }
 
 .product-actions{
-  display:flex;
-  gap:8px;
-  margin-top:15px;
+  display:grid;
+  grid-template-columns:1fr 44px;
+  gap:7px;
 }
 
-.btn{
+.buy-button{
+  height:40px;
   border:0;
-  padding:11px 13px;
-  border-radius:5px;
-  flex:1;
-  font-weight:600;
-}
-
-.btn-cart{
+  border-radius:6px;
   background:#111;
   color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:12px;
 }
 
-.btn-buy{
-  background:#25D366;
-  color:#fff;
+.buy-button:hover{
+  background:#333;
+}
+
+.add-button{
+  height:40px;
+  border:1px solid #ddd;
+  border-radius:6px;
+  background:#fff;
+  cursor:pointer;
+  font-size:19px;
+}
+
+.add-button:hover{
+  background:#f5f5f5;
+}
+
+/* =========================
+   ESTADOS
+========================= */
+
+.loading{
+  grid-column:1/-1;
+  padding:60px 20px;
+  text-align:center;
+  color:#777;
+}
+
+.spinner{
+  width:35px;
+  height:35px;
+  border:3px solid #ddd;
+  border-top-color:#111;
+  border-radius:50%;
+  animation:spin .8s linear infinite;
+  margin:0 auto 15px;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg);}
 }
 
 .empty{
   grid-column:1/-1;
   text-align:center;
-  padding:70px 20px;
+  padding:60px 20px;
   color:#777;
 }
 
 /* =========================
-   MODAL
+   WHATSAPP FLOTANTE
 ========================= */
 
-.modal{
+.whatsapp-float{
   position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.65);
-  z-index:3000;
-  display:none;
+  right:20px;
+  bottom:20px;
+  width:58px;
+  height:58px;
+  background:var(--verde);
+  border-radius:50%;
+  display:flex;
   align-items:center;
   justify-content:center;
-  padding:20px;
+  z-index:900;
+  box-shadow:0 5px 20px rgba(0,0,0,.2);
+  cursor:pointer;
+  transition:.2s;
 }
 
-.modal.show{
-  display:flex;
+.whatsapp-float:hover{
+  transform:scale(1.07);
 }
 
-.modal-box{
-  width:min(900px,100%);
-  max-height:90vh;
-  overflow:auto;
-  background:#fff;
-  position:relative;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-}
-
-.modal-img{
-  width:100%;
-  height:100%;
-  min-height:450px;
-  object-fit:cover;
-}
-
-.modal-info{
-  padding:35px;
-}
-
-.close{
-  position:absolute;
-  right:15px;
-  top:12px;
-  width:38px;
-  height:38px;
-  border:0;
-  border-radius:50%;
-  background:#fff;
-  font-size:24px;
-  z-index:2;
-}
-
-.modal-category{
-  color:#999;
-  text-transform:uppercase;
-  font-size:12px;
-  letter-spacing:1px;
-  margin-bottom:10px;
-}
-
-.modal-info h2{
-  font-family:Georgia,serif;
-  font-size:30px;
-  margin-bottom:15px;
-}
-
-.modal-price{
-  font-size:24px;
-  font-weight:bold;
-  margin-bottom:20px;
-}
-
-.modal-description{
-  line-height:1.7;
-  color:#555;
-  margin-bottom:20px;
-  white-space:pre-line;
-}
-
-.modal-data{
-  color:#555;
-  line-height:1.8;
-  margin-bottom:20px;
-  white-space:pre-line;
-}
-
-.modal-buttons{
-  display:flex;
-  gap:10px;
-}
-
-.modal-buttons button{
-  flex:1;
+.whatsapp-float svg{
+  width:32px;
+  height:32px;
+  fill:#fff;
 }
 
 /* =========================
    CARRITO
 ========================= */
 
-.cart-drawer{
-  position:fixed;
-  top:0;
-  right:-450px;
-  width:min(430px,100%);
-  height:100vh;
-  background:#fff;
-  z-index:4000;
-  box-shadow:-10px 0 35px rgba(0,0,0,.2);
-  transition:.3s;
-  display:flex;
-  flex-direction:column;
-}
-
-.cart-drawer.open{
-  right:0;
-}
-
-.cart-header{
-  padding:20px;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.cart-header h2{
-  font-family:Georgia,serif;
-}
-
-.cart-close{
-  border:0;
-  background:none;
-  font-size:28px;
-}
-
-.cart-items{
-  flex:1;
-  overflow:auto;
-  padding:15px;
-}
-
-.cart-item{
-  display:grid;
-  grid-template-columns:70px 1fr auto;
-  gap:12px;
-  padding:13px 0;
-  border-bottom:1px solid var(--line);
-}
-
-.cart-item img{
-  width:70px;
-  height:80px;
-  object-fit:cover;
-}
-
-.cart-item h4{
-  font-size:14px;
-  margin-bottom:7px;
-}
-
-.cart-item-price{
-  font-weight:bold;
-  font-size:14px;
-}
-
-.qty{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  margin-top:8px;
-}
-
-.qty button{
-  width:25px;
-  height:25px;
-  border:1px solid #ddd;
-  background:#fff;
-}
-
-.remove{
-  border:0;
-  background:none;
-  color:#999;
-  font-size:18px;
-}
-
-.cart-footer{
-  border-top:1px solid var(--line);
-  padding:20px;
-}
-
-.total{
-  display:flex;
-  justify-content:space-between;
-  font-size:20px;
-  font-weight:bold;
-  margin-bottom:15px;
-}
-
-.checkout{
-  width:100%;
-  border:0;
-  padding:15px;
-  border-radius:6px;
-  background:#25D366;
-  color:#fff;
-  font-weight:bold;
-  font-size:16px;
-}
-
-.cart-empty{
-  text-align:center;
-  color:#888;
-  padding:60px 20px;
-}
-
-/* =========================
-   OVERLAY
-========================= */
-
 .overlay{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.45);
-  z-index:3500;
+  z-index:1100;
   display:none;
 }
 
@@ -586,33 +503,250 @@ nav{
   display:block;
 }
 
-/* =========================
-   WHATSAPP
-========================= */
-
-.whatsapp{
+.cart-panel{
   position:fixed;
-  right:20px;
-  bottom:20px;
-  width:60px;
-  height:60px;
+  top:0;
+  right:-430px;
+  width:min(430px,100%);
+  height:100vh;
+  background:#fff;
+  z-index:1200;
+  transition:.3s;
+  display:flex;
+  flex-direction:column;
+  box-shadow:-5px 0 25px rgba(0,0,0,.15);
+}
+
+.cart-panel.open{
+  right:0;
+}
+
+.cart-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px;
+  border-bottom:1px solid #eee;
+}
+
+.cart-header h3{
+  font-size:20px;
+}
+
+.close-button{
+  border:0;
+  background:#f3f3f3;
+  width:35px;
+  height:35px;
   border-radius:50%;
-  background:#25D366;
+  cursor:pointer;
+  font-size:18px;
+}
+
+.cart-items{
+  flex:1;
+  overflow-y:auto;
+  padding:15px;
+}
+
+.cart-empty{
+  text-align:center;
+  padding:60px 20px;
+  color:#777;
+}
+
+.cart-item{
+  display:grid;
+  grid-template-columns:70px 1fr auto;
+  gap:10px;
+  align-items:center;
+  border-bottom:1px solid #eee;
+  padding:12px 0;
+}
+
+.cart-item img{
+  width:70px;
+  height:70px;
+  object-fit:cover;
+  border-radius:6px;
+  background:#f5f5f5;
+}
+
+.cart-item-name{
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:5px;
+}
+
+.cart-item-price{
+  font-size:13px;
+}
+
+.quantity{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin-top:7px;
+}
+
+.quantity button{
+  border:1px solid #ddd;
+  background:#fff;
+  width:25px;
+  height:25px;
+  cursor:pointer;
+  border-radius:4px;
+}
+
+.remove-item{
+  border:0;
+  background:transparent;
+  color:#999;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.cart-footer{
+  border-top:1px solid #eee;
+  padding:18px;
+}
+
+.total-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.whatsapp-checkout{
+  width:100%;
+  height:48px;
+  border:0;
+  border-radius:7px;
+  background:var(--verde);
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
   display:flex;
   align-items:center;
   justify-content:center;
-  z-index:2000;
-  box-shadow:0 5px 20px rgba(0,0,0,.25);
-  transition:.2s;
+  gap:8px;
 }
 
-.whatsapp:hover{
-  transform:scale(1.08);
+.whatsapp-checkout:hover{
+  background:#1ebe5d;
 }
 
-.whatsapp img{
-  width:34px;
-  height:34px;
+/* =========================
+   MODAL PRODUCTO
+========================= */
+
+.product-modal{
+  position:fixed;
+  inset:0;
+  z-index:1300;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.product-modal.show{
+  display:flex;
+}
+
+.modal-bg{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
+}
+
+.modal-content{
+  position:relative;
+  background:#fff;
+  width:min(900px,100%);
+  max-height:90vh;
+  overflow-y:auto;
+  border-radius:12px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  z-index:2;
+}
+
+.modal-image{
+  width:100%;
+  height:100%;
+  min-height:400px;
+  object-fit:cover;
+  background:#f5f5f5;
+}
+
+.modal-info{
+  padding:35px;
+}
+
+.modal-close{
+  position:absolute;
+  right:12px;
+  top:12px;
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,.15);
+  cursor:pointer;
+  z-index:5;
+  font-size:20px;
+}
+
+.modal-category{
+  color:#888;
+  font-size:12px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+
+.modal-title{
+  font-size:27px;
+  margin-bottom:15px;
+}
+
+.modal-price{
+  font-size:24px;
+  font-weight:bold;
+  margin-bottom:5px;
+}
+
+.modal-old-price{
+  color:#999;
+  text-decoration:line-through;
+  margin-bottom:20px;
+}
+
+.modal-description{
+  color:#555;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+.modal-details{
+  font-size:13px;
+  line-height:1.8;
+  margin-bottom:20px;
+}
+
+.modal-buy{
+  width:100%;
+  height:48px;
+  border:0;
+  border-radius:7px;
+  background:#111;
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 /* =========================
@@ -620,122 +754,154 @@ nav{
 ========================= */
 
 footer{
+  margin-top:30px;
   background:#111;
   color:#fff;
-  padding:50px 25px 25px;
+  padding:45px 6% 25px;
 }
 
-.footer-inner{
-  max-width:1400px;
-  margin:auto;
+.footer-grid{
   display:grid;
   grid-template-columns:2fr 1fr 1fr;
   gap:40px;
+  max-width:1200px;
+  margin:auto;
 }
 
 .footer-logo{
-  width:160px;
+  width:130px;
   background:#fff;
-  padding:8px;
+  padding:5px;
+  border-radius:5px;
   margin-bottom:15px;
 }
 
-.footer-col h3{
-  margin-bottom:15px;
-  font-family:Georgia,serif;
+.footer-title{
+  font-size:15px;
+  font-weight:bold;
+  margin-bottom:14px;
 }
 
-.footer-col p,
-.footer-col li{
+footer p,
+footer li{
   color:#bbb;
+  font-size:13px;
   line-height:1.8;
-  font-size:14px;
 }
 
-.footer-col ul{
+footer ul{
   list-style:none;
 }
 
 .footer-bottom{
-  max-width:1400px;
-  margin:35px auto 0;
-  padding-top:20px;
   border-top:1px solid #333;
+  margin-top:35px;
+  padding-top:20px;
   text-align:center;
   color:#888;
-  font-size:13px;
+  font-size:12px;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 
-@media(max-width:1050px){
+@media(max-width:1000px){
 
   .products{
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(3,minmax(0,1fr));
   }
 
-  .header-top{
-    flex-wrap:wrap;
-  }
-
-  .search{
-    order:3;
-    max-width:none;
-    flex-basis:100%;
-  }
 }
 
-@media(max-width:750px){
+@media(max-width:720px){
 
   .header-top{
-    padding:10px 15px;
+    padding:8px 12px;
+    gap:8px;
   }
 
   .logo{
-    width:120px;
+    width:105px;
     height:50px;
+  }
+
+  .search-box{
+    max-width:none;
+  }
+
+  .search-box input{
+    height:40px;
+    font-size:13px;
   }
 
   .header-actions{
     gap:5px;
   }
 
-  .header-btn{
-    padding:9px 10px;
+  .icon-button{
+    width:40px;
+    height:40px;
+  }
+
+  .nav{
+    padding:0 8px;
+  }
+
+  .nav-list{
+    justify-content:flex-start;
+  }
+
+  .nav-button{
+    padding:12px 10px;
     font-size:12px;
   }
 
-  .nav-inner{
-    justify-content:flex-start;
-    padding:0 10px;
+  .hero img{
+    min-height:250px;
+    object-fit:cover;
   }
 
-  .hero,
   .hero-content{
-    min-height:300px;
+    padding:20px;
   }
 
-  .benefits{
-    grid-template-columns:repeat(2,1fr);
+  .hero-text h1{
+    font-size:28px;
   }
 
-  .benefit{
-    border-bottom:1px solid rgba(255,255,255,.15);
+  .hero-text p{
+    font-size:13px;
   }
 
-  .products{
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
+  .info-strip{
+    grid-template-columns:1fr;
   }
 
-  .product-info{
+  .info-item{
     padding:12px;
   }
 
+  .catalog{
+    padding:30px 12px;
+  }
+
+  .catalog-head h2{
+    font-size:25px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+
+  .product-info{
+    padding:10px;
+  }
+
   .product-name{
-    font-size:14px;
+    font-size:13px;
+    min-height:34px;
   }
 
   .price{
@@ -743,293 +909,231 @@ footer{
   }
 
   .product-actions{
-    flex-direction:column;
+    grid-template-columns:1fr 38px;
   }
 
-  .modal-box{
+  .buy-button{
+    font-size:10px;
+  }
+
+  .modal-content{
     grid-template-columns:1fr;
     max-height:92vh;
   }
 
-  .modal-img{
-    min-height:300px;
+  .modal-image{
+    min-height:280px;
     max-height:350px;
   }
 
   .modal-info{
-    padding:25px;
+    padding:22px;
   }
 
-  .footer-inner{
-    grid-template-columns:1fr;
+  .modal-title{
+    font-size:22px;
   }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+
 }
 
-@media(max-width:430px){
+@media(max-width:400px){
 
   .products{
-    grid-template-columns:repeat(2,1fr);
+    gap:7px;
   }
 
-  .section-head h1{
-    font-size:28px;
+  .product-actions{
+    grid-template-columns:1fr;
   }
 
-  .filters{
-    justify-content:flex-start;
-    overflow-x:auto;
-    flex-wrap:nowrap;
-    padding-bottom:8px;
+  .add-button{
+    display:none;
   }
 
-  .filter{
-    white-space:nowrap;
+  .product-name{
+    font-size:12px;
   }
+
 }
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,120px);
+  background:#111;
+  color:#fff;
+  padding:12px 20px;
+  border-radius:25px;
+  font-size:13px;
+  z-index:2000;
+  transition:.3s;
+}
+
+.toast.show{
+  transform:translate(-50%,0);
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
 
   <div class="header-top">
 
-    <a href="#inicio">
-
+    <a href="#" onclick="filterCategory('Todos');return false;">
       <img
         class="logo"
-        src="logo%20garchez.jpeg"
+        src="./logo%20garchez.jpeg"
         alt="GarChéz Boutique"
+        onerror="this.style.display='none';"
       >
-
     </a>
 
-    <div class="search">
+    <div class="search-box">
 
       <input
-        id="searchInput"
         type="search"
+        id="searchInput"
         placeholder="Buscar productos..."
-        oninput="searchProducts(this.value)"
+        autocomplete="off"
       >
+
+      <span class="search-icon">⌕</span>
 
     </div>
 
     <div class="header-actions">
 
       <button
-        class="header-btn"
+        class="icon-button"
         onclick="openCart()"
+        aria-label="Carrito"
       >
-        🛍️ Carrito
-
+        🛒
         <span
           class="cart-count"
           id="cartCount"
         >0</span>
-
       </button>
 
     </div>
 
   </div>
 
-  <nav>
+  <nav class="nav">
 
-    <div class="nav-inner">
-
-      <a href="#inicio">Inicio</a>
-      <a href="#catalogo">Catálogo</a>
-
-      <a href="#catalogo" onclick="filterCategory('Damas')">
-        Damas
-      </a>
-
-      <a href="#catalogo" onclick="filterCategory('Caballeros')">
-        Caballeros
-      </a>
-
-      <a href="#catalogo" onclick="filterCategory('Calzado')">
-        Calzado
-      </a>
-
-      <a href="#catalogo" onclick="filterCategory('Bolsos')">
-        Bolsos
-      </a>
-
-      <a href="#catalogo" onclick="filterCategory('Gorras y Sombreros')">
-        Gorras y Sombreros
-      </a>
-
-      <a href="#catalogo" onclick="filterCategory('Relojes')">
-        Relojes
-      </a>
-
-      <a href="#catalogo" onclick="filterCategory('Accesorios')">
-        Accesorios
-      </a>
-
-      <a href="#catalogo" onclick="filterCategory('Temporada')">
-        Temporada
-      </a>
-
-      <a href="#catalogo" onclick="filterCategory('Hogar')">
-        Hogar
-      </a>
-
-      <a href="#catalogo" onclick="filterCategory('Lo Nuevo')">
-        Lo Nuevo
-      </a>
-
-      <a href="#catalogo" onclick="filterCategory('Ofertas')">
-        Ofertas
-      </a>
-
-    </div>
-
-  </nav>
-
-</header>
-
-<main id="inicio">
-
-  <section class="hero">
-
-    <div class="hero-content"></div>
-
-  </section>
-
-  <section class="benefits">
-
-    <div class="benefit">
-      🇳🇮
-      <strong>
-        Envíos a toda 🇳🇮 Nicaragua
-      </strong>
-    </div>
-
-    <div class="benefit">
-      🚚
-      <strong>
-        Envíos con CargoTrans
-      </strong>
-    </div>
-
-    <div class="benefit">
-      📍
-      <strong>
-        Envío GRATIS 📍 Chinandega y El Viejo 🇳🇮
-      </strong>
-    </div>
-
-    <div class="benefit">
-      💬
-      <strong>
-        Compra fácil por WhatsApp
-      </strong>
-    </div>
-
-  </section>
-
-  <section
-    class="catalog"
-    id="catalogo"
-  >
-
-    <div class="section-head">
-
-      <h1>
-        Todos nuestros productos
-      </h1>
-
-      <p>
-        Encuentra tu próximo favorito en GarChéz Boutique.
-      </p>
-
-    </div>
-
-    <div class="filters">
+    <div
+      class="nav-list"
+      id="categoryNav"
+    >
 
       <button
-        class="filter active"
+        class="nav-button active"
+        data-category="Todos"
         onclick="filterCategory('Todos')"
       >
-        Todos
+        Inicio
       </button>
 
       <button
-        class="filter"
+        class="nav-button"
+        data-category="Damas"
         onclick="filterCategory('Damas')"
       >
         Damas
       </button>
 
       <button
-        class="filter"
+        class="nav-button"
+        data-category="Caballeros"
         onclick="filterCategory('Caballeros')"
       >
         Caballeros
       </button>
 
       <button
-        class="filter"
+        class="nav-button"
+        data-category="Calzado"
         onclick="filterCategory('Calzado')"
       >
         Calzado
       </button>
 
       <button
-        class="filter"
+        class="nav-button"
+        data-category="Bolsos"
         onclick="filterCategory('Bolsos')"
       >
         Bolsos
       </button>
 
       <button
-        class="filter"
+        class="nav-button"
+        data-category="Gorras y Sombreros"
         onclick="filterCategory('Gorras y Sombreros')"
       >
         Gorras y Sombreros
       </button>
 
       <button
-        class="filter"
+        class="nav-button"
+        data-category="Relojes"
         onclick="filterCategory('Relojes')"
       >
         Relojes
       </button>
 
       <button
-        class="filter"
+        class="nav-button"
+        data-category="Accesorios"
         onclick="filterCategory('Accesorios')"
       >
         Accesorios
       </button>
 
       <button
-        class="filter"
+        class="nav-button"
+        data-category="Temporada"
         onclick="filterCategory('Temporada')"
       >
         Temporada
       </button>
 
       <button
-        class="filter"
+        class="nav-button"
+        data-category="Hogar"
         onclick="filterCategory('Hogar')"
       >
         Hogar
       </button>
 
       <button
-        class="filter"
+        class="nav-button"
+        data-category="Lo Nuevo"
         onclick="filterCategory('Lo Nuevo')"
       >
         Lo Nuevo
       </button>
 
       <button
-        class="filter"
+        class="nav-button"
+        data-category="Ofertas"
         onclick="filterCategory('Ofertas')"
       >
         Ofertas
@@ -1037,32 +1141,242 @@ footer{
 
     </div>
 
-    <div
-      class="products"
-      id="productsContainer"
-    ></div>
+  </nav>
 
-  </section>
+</header>
+
+
+<!-- =========================
+     PORTADA
+========================= -->
+
+<section class="hero">
+
+  <img
+    src="./portada.png"
+    alt="GarChéz Boutique"
+    onerror="this.style.display='none';"
+  >
+
+  <div class="hero-content">
+
+    <div class="hero-text">
+
+      <h1>GarChéz Boutique</h1>
+
+      <p>
+        Moda y estilo para ti 🇳🇮
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     INFORMACIÓN
+========================= -->
+
+<section class="info-strip">
+
+  <div class="info-item">
+    <strong>🚚 Envíos a toda 🇳🇮 Nicaragua</strong>
+    <span>Recibe tus productos donde estés.</span>
+  </div>
+
+  <div class="info-item">
+    <strong>🚚 Envío GRATIS 📍 Chinandega y El Viejo 🇳🇮</strong>
+    <span>Aplican zonas de cobertura.</span>
+  </div>
+
+  <div class="info-item">
+    <strong>💬 Compra fácil por WhatsApp</strong>
+    <span>Escríbenos y realiza tu pedido.</span>
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CATÁLOGO
+========================= -->
+
+<main class="catalog" id="catalogo">
+
+  <div class="catalog-head">
+
+    <h2 id="catalogTitle">
+      Todos los productos
+    </h2>
+
+    <p>
+      Descubre nuestros productos disponibles.
+    </p>
+
+  </div>
+
+  <div class="results-info">
+
+    <span id="resultsCount">
+      Cargando productos...
+    </span>
+
+    <button
+      class="clear-filter"
+      onclick="filterCategory('Todos')"
+    >
+      Ver todos
+    </button>
+
+  </div>
+
+  <div
+    class="products"
+    id="products"
+  >
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Cargando productos...
+
+    </div>
+
+  </div>
 
 </main>
 
+
+<!-- =========================
+     WHATSAPP
+========================= -->
+
+<a
+  class="whatsapp-float"
+  href="https://wa.me/50587961399"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="WhatsApp"
+>
+
+  <svg
+    viewBox="0 0 32 32"
+    aria-hidden="true"
+  >
+
+    <path d="M19.11 17.4c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.63 1.11 2.81.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.55.58.65.21 1.24.18 1.7.11.52-.08 1.59-.65 1.81-1.28.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/>
+
+    <path d="M16.03 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.59 4.47 1.71 6.41L3.2 28.8l6.54-1.72a12.77 12.77 0 0 0 6.29 1.65h.01c7.06 0 12.79-5.73 12.79-12.8S23.09 3.2 16.03 3.2zm0 23.42h-.01c-1.99 0-3.94-.53-5.65-1.54l-.41-.24-3.88 1.02 1.04-3.78-.27-.39a10.61 10.61 0 1 1 9.18 4.93z"/>
+
+  </svg>
+
+</a>
+
+
+<!-- =========================
+     CARRITO
+========================= -->
+
 <div
-  class="modal"
+  class="overlay"
+  id="overlay"
+  onclick="closeCart()"
+></div>
+
+<aside
+  class="cart-panel"
+  id="cartPanel"
+>
+
+  <div class="cart-header">
+
+    <h3>🛒 Mi carrito</h3>
+
+    <button
+      class="close-button"
+      onclick="closeCart()"
+    >
+      ×
+    </button>
+
+  </div>
+
+  <div
+    class="cart-items"
+    id="cartItems"
+  >
+
+    <div class="cart-empty">
+      Tu carrito está vacío.
+    </div>
+
+  </div>
+
+  <div class="cart-footer">
+
+    <div class="total-row">
+
+      <span>Total</span>
+
+      <span id="cartTotal">
+        C$ 0
+      </span>
+
+    </div>
+
+    <button
+      class="whatsapp-checkout"
+      onclick="checkoutWhatsApp()"
+    >
+
+      <svg
+        viewBox="0 0 32 32"
+        width="22"
+        height="22"
+        fill="currentColor"
+      >
+        <path d="M19.11 17.4c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.63 1.11 2.81.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.55.58.65.21 1.24.18 1.7.11.52-.08 1.59-.65 1.81-1.28.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/>
+        <path d="M16.03 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.59 4.47 1.71 6.41L3.2 28.8l6.54-1.72a12.77 12.77 0 0 0 6.29 1.65h.01c7.06 0 12.79-5.73 12.79-12.8S23.09 3.2 16.03 3.2zm0 23.42h-.01c-1.99 0-3.94-.53-5.65-1.54l-.41-.24-3.88 1.02 1.04-3.78-.27-.39a10.61 10.61 0 1 1 9.18 4.93z"/>
+      </svg>
+
+      Pedir por WhatsApp
+
+    </button>
+
+  </div>
+
+</aside>
+
+
+<!-- =========================
+     MODAL PRODUCTO
+========================= -->
+
+<div
+  class="product-modal"
   id="productModal"
 >
 
-  <div class="modal-box">
+  <div
+    class="modal-bg"
+    onclick="closeProductModal()"
+  ></div>
+
+  <div class="modal-content">
 
     <button
-      class="close"
-      onclick="closeModal()"
+      class="modal-close"
+      onclick="closeProductModal()"
     >
       ×
     </button>
 
     <img
+      class="modal-image"
       id="modalImage"
-      class="modal-img"
       src=""
       alt=""
     >
@@ -1074,11 +1388,19 @@ footer{
         id="modalCategory"
       ></div>
 
-      <h2 id="modalName"></h2>
+      <h2
+        class="modal-title"
+        id="modalTitle"
+      ></h2>
 
       <div
         class="modal-price"
         id="modalPrice"
+      ></div>
+
+      <div
+        class="modal-old-price"
+        id="modalOldPrice"
       ></div>
 
       <div
@@ -1087,27 +1409,16 @@ footer{
       ></div>
 
       <div
-        class="modal-data"
-        id="modalData"
+        class="modal-details"
+        id="modalDetails"
       ></div>
 
-      <div class="modal-buttons">
-
-        <button
-          class="btn btn-cart"
-          onclick="addModalToCart()"
-        >
-          🛍️ Agregar al carrito
-        </button>
-
-        <button
-          class="btn btn-buy"
-          onclick="buyModalProduct()"
-        >
-          💬 WhatsApp
-        </button>
-
-      </div>
+      <button
+        class="modal-buy"
+        id="modalBuy"
+      >
+        Comprar por WhatsApp
+      </button>
 
     </div>
 
@@ -1115,137 +1426,73 @@ footer{
 
 </div>
 
-<div
-  class="overlay"
-  id="overlay"
-  onclick="closeCart()"
-></div>
 
-<aside
-  class="cart-drawer"
-  id="cartDrawer"
->
-
-  <div class="cart-header">
-
-    <h2>
-      Tu carrito
-    </h2>
-
-    <button
-      class="cart-close"
-      onclick="closeCart()"
-    >
-      ×
-    </button>
-
-  </div>
-
-  <div
-    class="cart-items"
-    id="cartItems"
-  ></div>
-
-  <div class="cart-footer">
-
-    <div class="total">
-
-      <span>
-        Total
-      </span>
-
-      <span id="cartTotal">
-        C$0
-      </span>
-
-    </div>
-
-    <button
-      class="checkout"
-      onclick="checkoutWhatsApp()"
-    >
-      💬 Comprar por WhatsApp
-    </button>
-
-  </div>
-
-</aside>
-
-<a
-  class="whatsapp"
-  href="https://wa.me/50587961399"
-  target="_blank"
-  rel="noopener"
-  title="Escríbenos por WhatsApp"
->
-
-  <img
-    src="https://cdn.simpleicons.org/whatsapp/ffffff"
-    alt="WhatsApp"
-  >
-
-</a>
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-  <div class="footer-inner">
+  <div class="footer-grid">
 
-    <div class="footer-col">
+    <div>
 
       <img
         class="footer-logo"
-        src="logo%20garchez.jpeg"
+        src="./logo%20garchez.jpeg"
         alt="GarChéz Boutique"
       >
 
       <p>
-        GarChéz Boutique
-      </p>
-
-      <p>
-        Moda, calzado, bolsos y accesorios
+        GarChéz Boutique es una tienda de moda y productos
         para toda 🇳🇮 Nicaragua.
       </p>
 
       <p>
-        🚚 Envíos a toda 🇳🇮 Nicaragua.
+        Realizamos envíos a toda 🇳🇮 Nicaragua.
       </p>
 
       <p>
-        📍 Envío GRATIS en Chinandega y El Viejo 🇳🇮
+        🚚 Envío GRATIS 📍 Chinandega y El Viejo 🇳🇮
       </p>
 
     </div>
 
-    <div class="footer-col">
+    <div>
 
-      <h3>
+      <div class="footer-title">
         Categorías
-      </h3>
+      </div>
 
       <ul>
+
         <li>Damas</li>
         <li>Caballeros</li>
         <li>Calzado</li>
         <li>Bolsos</li>
         <li>Accesorios</li>
-        <li>Relojes</li>
+
       </ul>
 
     </div>
 
-    <div class="footer-col">
+    <div>
 
-      <h3>
-        Compra
-      </h3>
+      <div class="footer-title">
+        Contacto
+      </div>
 
-      <ul>
-        <li>🛍️ Carrito</li>
-        <li>💬 WhatsApp</li>
-        <li>🚚 Envíos</li>
-        <li>🇳🇮 Nicaragua</li>
-      </ul>
+      <p>
+        💬 WhatsApp
+      </p>
+
+      <p>
+        8796-1399
+      </p>
+
+      <p>
+        🇳🇮 Nicaragua
+      </p>
 
     </div>
 
@@ -1254,13 +1501,31 @@ footer{
   <div class="footer-bottom">
 
     © 2026 GarChéz Boutique.
+    Kevin Garcia & Keyling Sanchez.
     Todos los derechos reservados.
 
   </div>
 
 </footer>
 
+
+<!-- =========================
+     TOAST
+========================= -->
+
+<div
+  class="toast"
+  id="toast"
+></div>
+
+
 <script>
+
+/* =========================================================
+   GARCHÉZ BOUTIQUE
+   CATÁLOGO CONECTADO AL CMS
+========================================================= */
+
 
 /* =========================
    CONFIGURACIÓN
@@ -1272,10 +1537,15 @@ const RAW_BASE =
   "https://raw.githubusercontent.com/ladygarcia130299/Garchez-Boutique-/main/";
 
 const DATA_BASE =
-  "https://ladygarcia130299.github.io/GarChez-Boutique-/data/";
+  RAW_BASE + "data/";
 
 const ASSETS_BASE =
-  "https://ladygarcia130299.github.io/GarChez-Boutique-/assets/";
+  RAW_BASE + "assets/";
+
+
+/* =========================
+   ARCHIVOS DEL CMS
+========================= */
 
 const SOURCES = [
 
@@ -1303,6 +1573,7 @@ const SOURCES = [
 
 ];
 
+
 /* =========================
    VARIABLES
 ========================= */
@@ -1313,32 +1584,550 @@ let filteredProducts = [];
 
 let currentCategory = "Todos";
 
-let currentSearch = "";
+let cart = [];
 
 let currentModalProduct = null;
 
-let cart = [];
 
 /* =========================
-   INICIO
+   ELEMENTOS
 ========================= */
 
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
+const productsContainer =
+  document.getElementById("products");
 
-    loadCart();
+const resultsCount =
+  document.getElementById("resultsCount");
 
-    loadProducts();
+const catalogTitle =
+  document.getElementById("catalogTitle");
 
-  }
-);
+const searchInput =
+  document.getElementById("searchInput");
+
+const cartPanel =
+  document.getElementById("cartPanel");
+
+const overlay =
+  document.getElementById("overlay");
+
+const cartItems =
+  document.getElementById("cartItems");
+
+const cartCount =
+  document.getElementById("cartCount");
+
+const cartTotal =
+  document.getElementById("cartTotal");
+
+const productModal =
+  document.getElementById("productModal");
+
 
 /* =========================
-   CARGAR PRODUCTOS CMS
+   IMÁGENES CMS
+========================= */
+
+function convertImagePath(path){
+
+  if(!path){
+    return "";
+  }
+
+  /*
+    Si Pages CMS devuelve un objeto,
+    intentamos encontrar su URL.
+  */
+
+  if(typeof path === "object"){
+
+    if(Array.isArray(path)){
+
+      if(path.length === 0){
+        return "";
+      }
+
+      return convertImagePath(path[0]);
+
+    }
+
+    path =
+      path.url ||
+      path.src ||
+      path.path ||
+      path.value ||
+      path.name ||
+      "";
+
+  }
+
+  const value =
+    String(path).trim();
+
+  if(!value){
+    return "";
+  }
+
+
+  /*
+    URL completa
+  */
+
+  if(/^https?:\/\//i.test(value)){
+    return value;
+  }
+
+
+  /*
+    /assets/imagen.jpg
+  */
+
+  if(value.startsWith("/assets/")){
+
+    return (
+      ASSETS_BASE +
+      value
+        .slice("/assets/".length)
+        .split("/")
+        .map(
+          part =>
+            encodeURIComponent(part)
+        )
+        .join("/")
+    );
+
+  }
+
+
+  /*
+    assets/imagen.jpg
+  */
+
+  if(value.startsWith("assets/")){
+
+    return (
+      ASSETS_BASE +
+      value
+        .slice("assets/".length)
+        .split("/")
+        .map(
+          part =>
+            encodeURIComponent(part)
+        )
+        .join("/")
+    );
+
+  }
+
+
+  /*
+    ./assets/imagen.jpg
+  */
+
+  if(value.startsWith("./assets/")){
+
+    return (
+      ASSETS_BASE +
+      value
+        .slice("./assets/".length)
+        .split("/")
+        .map(
+          part =>
+            encodeURIComponent(part)
+        )
+        .join("/")
+    );
+
+  }
+
+
+  /*
+    Si CMS entrega solo el nombre
+    de la imagen.
+  */
+
+  if(
+    !value.startsWith("data:") &&
+    !value.startsWith("blob:")
+  ){
+
+    return (
+      ASSETS_BASE +
+      value
+        .replace(/^\/+/,"")
+        .split("/")
+        .map(
+          part =>
+            encodeURIComponent(part)
+        )
+        .join("/")
+    );
+
+  }
+
+
+  return value;
+
+}
+
+
+/* =========================
+   OBTENER VALOR DE CMS
+========================= */
+
+function getField(product,fields){
+
+  for(const field of fields){
+
+    if(
+      product[field] !== undefined &&
+      product[field] !== null &&
+      product[field] !== ""
+    ){
+
+      return product[field];
+
+    }
+
+  }
+
+  return "";
+
+}
+
+
+/* =========================
+   TEXTO SEGURO
+========================= */
+
+function cleanText(value){
+
+  if(value === undefined || value === null){
+    return "";
+  }
+
+  if(typeof value === "object"){
+
+    if(Array.isArray(value)){
+      return value.join(", ");
+    }
+
+    return (
+      value.text ||
+      value.value ||
+      value.name ||
+      JSON.stringify(value)
+    );
+
+  }
+
+  return String(value).trim();
+
+}
+
+
+/* =========================
+   PRECIO
+========================= */
+
+function numericPrice(value){
+
+  if(
+    typeof value === "number" &&
+    Number.isFinite(value)
+  ){
+
+    return value;
+
+  }
+
+  const text =
+    cleanText(value)
+      .replace(/,/g,"")
+      .replace(/[^\d.]/g,"");
+
+  const number =
+    parseFloat(text);
+
+  return Number.isFinite(number)
+    ? number
+    : 0;
+
+}
+
+
+function formatPrice(value){
+
+  if(
+    value === undefined ||
+    value === null ||
+    value === ""
+  ){
+
+    return "Consultar";
+
+  }
+
+  const number =
+    numericPrice(value);
+
+  if(number > 0){
+
+    return (
+      "C$ " +
+      number.toLocaleString(
+        "es-NI",
+        {
+          maximumFractionDigits:2
+        }
+      )
+    );
+
+  }
+
+  return cleanText(value) || "Consultar";
+
+}
+
+
+/* =========================
+   OFERTA
+========================= */
+
+function isOffer(value){
+
+  if(value === true){
+    return true;
+  }
+
+  const text =
+    cleanText(value).toLowerCase();
+
+  return [
+    "true",
+    "1",
+    "si",
+    "sí",
+    "yes",
+    "oferta",
+    "true"
+  ].includes(text);
+
+}
+
+
+/* =========================
+   PRODUCTO NORMALIZADO
+========================= */
+
+function normalizeProduct(
+  product,
+  category,
+  index
+){
+
+  const name =
+    cleanText(
+      getField(
+        product,
+        [
+          "nombre",
+          "name",
+          "Nombre del producto"
+        ]
+      )
+    ) ||
+    "Producto";
+
+
+  let image =
+    getField(
+      product,
+      [
+        "imagen",
+        "image",
+        "foto",
+        "Foto del producto",
+        "Foto",
+        "url"
+      ]
+    );
+
+
+  let gallery =
+    getField(
+      product,
+      [
+        "galeria",
+        "gallery",
+        "Galería"
+      ]
+    );
+
+
+  if(!Array.isArray(gallery)){
+    gallery = [];
+  }
+
+
+  image =
+    convertImagePath(image);
+
+  gallery =
+    gallery.map(
+      item =>
+        convertImagePath(item)
+    ).filter(Boolean);
+
+
+  const price =
+    getField(
+      product,
+      [
+        "precio",
+        "price",
+        "Precio"
+      ]
+    );
+
+
+  const oldPrice =
+    getField(
+      product,
+      [
+        "precio_anterior",
+        "precioAnterior",
+        "oldPrice",
+        "Precio anterior"
+      ]
+    );
+
+
+  const sizes =
+    cleanText(
+      getField(
+        product,
+        [
+          "talla",
+          "tallas",
+          "size",
+          "sizes",
+          "Tallas"
+        ]
+      )
+    );
+
+
+  const colors =
+    cleanText(
+      getField(
+        product,
+        [
+          "color",
+          "colores",
+          "color",
+          "colors",
+          "Colores"
+        ]
+      )
+    );
+
+
+  const description =
+    cleanText(
+      getField(
+        product,
+        [
+          "descripcion",
+          "descripción",
+          "description",
+          "Descripción"
+        ]
+      )
+    );
+
+
+  const availability =
+    cleanText(
+      getField(
+        product,
+        [
+          "disponibilidad",
+          "availability",
+          "Disponibilidad"
+        ]
+      )
+    ) ||
+    "Disponible";
+
+
+  const offer =
+    isOffer(
+      getField(
+        product,
+        [
+          "oferta",
+          "offer",
+          "Oferta"
+        ]
+      )
+    );
+
+
+  return {
+
+    id:
+      category +
+      "-" +
+      index +
+      "-" +
+      encodeURIComponent(name),
+
+    name,
+
+    image,
+
+    gallery,
+
+    price,
+
+    oldPrice,
+
+    category,
+
+    sizes,
+
+    colors,
+
+    description,
+
+    availability,
+
+    offer
+
+  };
+
+}
+
+
+/* =========================
+   CARGAR PRODUCTOS
 ========================= */
 
 async function loadProducts(){
+
+  productsContainer.innerHTML = `
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Cargando productos...
+
+    </div>
+
+  `;
+
 
   const requests =
     SOURCES.map(
@@ -1354,6 +2143,7 @@ async function loadProducts(){
               Date.now()
             );
 
+
           if(!response.ok){
 
             console.log(
@@ -1365,8 +2155,10 @@ async function loadProducts(){
 
           }
 
+
           const data =
             await response.json();
+
 
           if(!Array.isArray(data)){
 
@@ -1374,17 +2166,20 @@ async function loadProducts(){
 
           }
 
-          return data.map(
-            (product,index) => {
 
-              return normalizeProduct(
-                product,
-                category,
-                index
-              );
-
-            }
-          );
+          return data
+            .map(
+              (product,index) =>
+                normalizeProduct(
+                  product,
+                  category,
+                  index
+                )
+            )
+            .filter(
+              product =>
+                product.name
+            );
 
         }catch(error){
 
@@ -1401,160 +2196,130 @@ async function loadProducts(){
       }
     );
 
+
   const results =
     await Promise.all(requests);
+
 
   allProducts =
     results.flat();
 
+
   filteredProducts =
     [...allProducts];
+
 
   renderProducts();
 
 }
 
+
 /* =========================
-   NORMALIZAR PRODUCTO
+   FILTRAR CATEGORÍA
 ========================= */
 
-function normalizeProduct(
-  product,
-  category,
-  index
-){
+function filterCategory(category){
 
-  let image =
-    product.imagen ||
-    "";
+  currentCategory =
+    category;
 
-  let gallery =
-    Array.isArray(product.galeria)
-      ? product.galeria
-      : [];
 
-  image =
-    convertImagePath(image);
+  document
+    .querySelectorAll(".nav-button")
+    .forEach(button => {
 
-  gallery =
-    gallery.map(
-      convertImagePath
-    );
+      button.classList.toggle(
+        "active",
+        button.dataset.category === category
+      );
 
-  return {
+    });
 
-    id:
-      category +
-      "-" +
-      index +
-      "-" +
-      encodeURIComponent(
-        product.nombre ||
-        "producto"
-      ),
 
-    name:
-      product.nombre ||
-      "Producto",
+  applyFilters();
 
-    image:
-      image ||
-      "logo%20garchez.jpeg",
 
-    gallery,
-
-    price:
-      product.precio ||
-      "Consultar",
-
-    oldPrice:
-      product.precio_anterior ||
-      "",
-
-    category,
-
-    sizes:
-      product.talla ||
-      "",
-
-    colors:
-      product.color ||
-      "",
-
-    description:
-      product.descripcion ||
-      "",
-
-    availability:
-      product.disponibilidad ||
-      "Disponible",
-
-    offer:
-      product.oferta === true
-
-  };
+  document
+    .getElementById("catalogo")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
 
 }
 
+
 /* =========================
-   IMÁGENES CMS
-   CORREGIDO
+   FILTROS
 ========================= */
 
-const DATA_BASE =
-  "https://ladygarcia130299.github.io/GarChez-Boutique-/data/";
+function applyFilters(){
 
-const ASSETS_BASE =
-  "https://ladygarcia130299.github.io/GarChez-Boutique-/assets/";
+  const search =
+    searchInput.value
+      .trim()
+      .toLowerCase();
 
-  const value =
-    String(path).trim();
 
-  if(/^https?:\/\//i.test(value)){
-    return value;
-  }
+  filteredProducts =
+    allProducts.filter(product => {
 
-  if(value.startsWith("/assets/")){
+      let categoryMatch =
+        currentCategory === "Todos";
 
-    const filename =
-      value
-        .slice("/assets/".length)
-        .split("/")
-        .map(
-          part =>
-            encodeURIComponent(part)
-        )
-        .join("/");
 
-    return (
-      RAW_BASE +
-      "assets/" +
-      filename
-    );
+      if(
+        currentCategory !== "Todos"
+      ){
 
-  }
+        if(
+          currentCategory === "Ofertas"
+        ){
 
-  if(value.startsWith("assets/")){
+          categoryMatch =
+            product.offer === true ||
+            product.category === "Ofertas";
 
-    const filename =
-      value
-        .split("/")
-        .map(
-          part =>
-            encodeURIComponent(part)
-        )
-        .join("/");
+        }else{
 
-    return (
-      RAW_BASE +
-      filename
-    );
+          categoryMatch =
+            product.category ===
+            currentCategory;
 
-  }
+        }
 
-  return value;
+      }
+
+
+      const searchable =
+        (
+          product.name +
+          " " +
+          product.category +
+          " " +
+          product.description +
+          " " +
+          product.colors
+        ).toLowerCase();
+
+
+      const searchMatch =
+        !search ||
+        searchable.includes(search);
+
+
+      return (
+        categoryMatch &&
+        searchMatch
+      );
+
+    });
+
+
+  renderProducts();
 
 }
+
 
 /* =========================
    RENDER PRODUCTOS
@@ -1562,24 +2327,36 @@ const ASSETS_BASE =
 
 function renderProducts(){
 
-  const container =
-    document.getElementById(
-      "productsContainer"
-    );
+  const total =
+    filteredProducts.length;
 
-  if(!filteredProducts.length){
 
-    container.innerHTML = `
+  resultsCount.textContent =
+    total === 1
+      ? "1 producto"
+      : total + " productos";
+
+
+  catalogTitle.textContent =
+    currentCategory === "Todos"
+      ? "Todos los productos"
+      : currentCategory;
+
+
+  if(total === 0){
+
+    productsContainer.innerHTML = `
 
       <div class="empty">
 
-        <h3>
-          Aún no hay productos para mostrar
-        </h3>
+        <div style="font-size:40px;margin-bottom:12px;">
+          🔎
+        </div>
 
-        <p>
-          Los productos publicados
-          aparecerán aquí automáticamente.
+        <h3>No encontramos productos</h3>
+
+        <p style="margin-top:8px;">
+          Prueba con otra búsqueda o categoría.
         </p>
 
       </div>
@@ -1590,569 +2367,503 @@ function renderProducts(){
 
   }
 
-  container.innerHTML =
+
+  productsContainer.innerHTML =
     filteredProducts
       .map(
-        product => {
-
-          const index =
-            allProducts.findIndex(
-              item =>
-                item.id === product.id
-            );
-
-          return `
-
-            <article class="product">
-
-              <img
-                class="product-img"
-                src="${escapeHTML(product.image)}"
-                alt="${escapeHTML(product.name)}"
-                loading="lazy"
-                onerror="this.onerror=null;this.src='logo%20garchez.jpeg'"
-              >
-
-              <div class="product-info">
-
-                <div class="product-category">
-                  ${escapeHTML(product.category)}
-                </div>
-
-                <div class="product-name">
-                  ${escapeHTML(product.name)}
-                </div>
-
-                <div class="price">
-
-                  ${formatPrice(product.price)}
-
-                  ${
-                    product.oldPrice
-                    ?
-                    `
-                      <span class="old-price">
-                        ${formatPrice(product.oldPrice)}
-                      </span>
-                    `
-                    :
-                    ""
-                  }
-
-                </div>
-
-                <div class="product-actions">
-
-                  <button
-                    class="btn btn-cart"
-                    onclick="addToCartByIndex(${index})"
-                  >
-                    🛍️ Agregar
-                  </button>
-
-                  <button
-                    class="btn btn-buy"
-                    onclick="openProduct(${index})"
-                  >
-                    Ver
-                  </button>
-
-                </div>
-
-              </div>
-
-            </article>
-
-          `;
-
-        }
+        product =>
+          createProductCard(product)
       )
       .join("");
 
-}
 
-/* =========================
-   FILTROS
-========================= */
-
-function filterCategory(
-  category
-){
-
-  currentCategory =
-    category;
+  /*
+    Después de crear las imágenes,
+    ocultamos imágenes que no carguen
+    sin reemplazarlas automáticamente
+    por el logo.
+  */
 
   document
-    .querySelectorAll(
-      ".filter"
-    )
-    .forEach(
-      button => {
+    .querySelectorAll(".product-image")
+    .forEach(image => {
 
-        button.classList.toggle(
-          "active",
-          button.textContent.trim() ===
-          category
-        );
+      image.addEventListener(
+        "error",
+        function(){
 
-      }
-    );
+          this.style.display = "none";
 
-  applyFilters();
+          const wrapper =
+            this.closest(
+              ".product-image-wrap"
+            );
 
-}
+          if(wrapper){
 
-/* =========================
-   BUSCADOR
-========================= */
-
-function searchProducts(
-  text
-){
-
-  currentSearch =
-    normalizeText(text);
-
-  applyFilters();
-
-}
-
-/* =========================
-   APLICAR FILTROS
-========================= */
-
-function applyFilters(){
-
-  filteredProducts =
-    allProducts.filter(
-      product => {
-
-        const categoryText =
-          normalizeText(
-            product.category
-          );
-
-        let categoryMatch =
-          currentCategory ===
-          "Todos";
-
-        if(
-          currentCategory !==
-          "Todos"
-        ){
-
-          if(
-            currentCategory ===
-            "Ofertas"
-          ){
-
-            categoryMatch =
-              product.offer === true ||
-              Boolean(
-                product.oldPrice
-              );
-
-          }else{
-
-            categoryMatch =
-              categoryText.includes(
-                normalizeText(
-                  currentCategory
-                )
-              );
+            wrapper.style.background =
+              "#f5f5f5";
 
           }
 
         }
+      );
 
-        const searchMatch =
-          !currentSearch ||
-
-          normalizeText(
-            product.name
-          ).includes(
-            currentSearch
-          ) ||
-
-          normalizeText(
-            product.category
-          ).includes(
-            currentSearch
-          ) ||
-
-          normalizeText(
-            product.description
-          ).includes(
-            currentSearch
-          );
-
-        return (
-          categoryMatch &&
-          searchMatch
-        );
-
-      }
-    );
-
-  renderProducts();
+    });
 
 }
 
+
 /* =========================
-   MODAL
+   TARJETA
 ========================= */
 
-function openProduct(
-  index
-){
+function createProductCard(product){
+
+  const image =
+    product.image ||
+    "";
+
+
+  const price =
+    formatPrice(
+      product.price
+    );
+
+
+  const oldPrice =
+    product.oldPrice
+      ? formatPrice(
+          product.oldPrice
+        )
+      : "";
+
+
+  return `
+
+    <article
+      class="product-card"
+      data-id="${escapeHtml(product.id)}"
+    >
+
+      <div
+        class="product-image-wrap"
+        onclick="openProductModal('${escapeJs(product.id)}')"
+      >
+
+        ${
+          image
+            ? `
+              <img
+                class="product-image"
+                src="${escapeHtml(image)}"
+                alt="${escapeHtml(product.name)}"
+                loading="lazy"
+              >
+            `
+            : `
+              <div
+                style="
+                  width:100%;
+                  height:100%;
+                  display:flex;
+                  align-items:center;
+                  justify-content:center;
+                  font-size:45px;
+                "
+              >
+                🛍️
+              </div>
+            `
+        }
+
+        ${
+          product.offer
+            ? `
+              <span class="offer-badge">
+                OFERTA
+              </span>
+            `
+            : ""
+        }
+
+      </div>
+
+
+      <div class="product-info">
+
+        <div class="product-category">
+          ${escapeHtml(product.category)}
+        </div>
+
+        <div class="product-name">
+          ${escapeHtml(product.name)}
+        </div>
+
+        <div class="price-row">
+
+          <span class="price">
+            ${escapeHtml(price)}
+          </span>
+
+          ${
+            oldPrice
+              ? `
+                <span class="old-price">
+                  ${escapeHtml(oldPrice)}
+                </span>
+              `
+              : ""
+          }
+
+        </div>
+
+
+        <div class="product-actions">
+
+          <button
+            class="buy-button"
+            onclick="buyProduct('${escapeJs(product.id)}')"
+          >
+            Comprar
+          </button>
+
+          <button
+            class="add-button"
+            onclick="addToCart('${escapeJs(product.id)}')"
+            title="Agregar al carrito"
+          >
+            +
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  `;
+
+}
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHtml(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeJs(value){
+
+  return String(value)
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'");
+
+}
+
+
+/* =========================
+   BUSCAR PRODUCTO
+========================= */
+
+function findProduct(id){
+
+  return allProducts.find(
+    product =>
+      product.id === id
+  );
+
+}
+
+
+/* =========================
+   COMPRAR PRODUCTO
+========================= */
+
+function buyProduct(id){
 
   const product =
-    allProducts[index];
+    findProduct(id);
+
 
   if(!product){
-
     return;
+  }
+
+
+  const message =
+    buildProductMessage(
+      product
+    );
+
+
+  const url =
+    "https://wa.me/" +
+    PHONE +
+    "?text=" +
+    encodeURIComponent(message);
+
+
+  window.open(
+    url,
+    "_blank"
+  );
+
+}
+
+
+/* =========================
+   MENSAJE PRODUCTO
+========================= */
+
+function buildProductMessage(product){
+
+  let message =
+    "Hola 👋, quiero comprar este producto de GarChéz Boutique 🇳🇮%0A%0A";
+
+  message =
+    "Hola 👋, quiero comprar este producto de GarChéz Boutique 🇳🇮\n\n";
+
+  message +=
+    "🛍️ Producto: " +
+    product.name +
+    "\n";
+
+  message +=
+    "📂 Categoría: " +
+    product.category +
+    "\n";
+
+  message +=
+    "💰 Precio: " +
+    formatPrice(product.price) +
+    "\n";
+
+  if(product.sizes){
+
+    message +=
+      "📏 Tallas: " +
+      product.sizes +
+      "\n";
 
   }
+
+  if(product.colors){
+
+    message +=
+      "🎨 Colores: " +
+      product.colors +
+      "\n";
+
+  }
+
+  message +=
+    "\n🚚 Envíos a toda 🇳🇮 Nicaragua.\n";
+
+  message +=
+    "🚚 Envío GRATIS 📍 Chinandega y El Viejo 🇳🇮\n\n";
+
+  message +=
+    "¿Está disponible?";
+
+  return message;
+
+}
+
+
+/* =========================
+   MODAL PRODUCTO
+========================= */
+
+function openProductModal(id){
+
+  const product =
+    findProduct(id);
+
+
+  if(!product){
+    return;
+  }
+
 
   currentModalProduct =
     product;
 
-  const modal =
-    document.getElementById(
-      "productModal"
-    );
 
-  const image =
-    document.getElementById(
-      "modalImage"
-    );
+  document.getElementById(
+    "modalImage"
+  ).src =
+    product.image || "";
 
-  image.onerror =
-    function(){
 
-      this.onerror = null;
-
-      this.src =
-        "logo%20garchez.jpeg";
-
-    };
-
-  image.src =
-    product.image;
-
-  image.alt =
+  document.getElementById(
+    "modalImage"
+  ).alt =
     product.name;
+
 
   document.getElementById(
     "modalCategory"
   ).textContent =
     product.category;
 
+
   document.getElementById(
-    "modalName"
+    "modalTitle"
   ).textContent =
     product.name;
 
+
   document.getElementById(
     "modalPrice"
-  ).innerHTML =
-
+  ).textContent =
     formatPrice(
       product.price
-    ) +
-
-    (
-      product.oldPrice
-      ?
-      `
-        <span class="old-price">
-          ${formatPrice(
-            product.oldPrice
-          )}
-        </span>
-      `
-      :
-      ""
     );
+
+
+  document.getElementById(
+    "modalOldPrice"
+  ).textContent =
+    product.oldPrice
+      ? formatPrice(
+          product.oldPrice
+        )
+      : "";
+
 
   document.getElementById(
     "modalDescription"
   ).textContent =
     product.description ||
-    "";
+    "Consulta disponibilidad y detalles por WhatsApp.";
 
-  document.getElementById(
-    "modalData"
-  ).innerHTML = `
 
-    ${
-      product.sizes
-      ?
-      `
-        <strong>
-          Talla:
-        </strong>
-        ${escapeHTML(
-          product.sizes
-        )}
-        <br>
-      `
-      :
-      ""
-    }
+  let details = "";
 
-    ${
-      product.colors
-      ?
-      `
-        <strong>
-          Color:
-        </strong>
-        ${escapeHTML(
-          product.colors
-        )}
-        <br>
-      `
-      :
-      ""
-    }
 
-    <strong>
-      Disponibilidad:
-    </strong>
-    ${escapeHTML(
-      product.availability
-    )}
+  if(product.sizes){
 
-  `;
-
-  modal.classList.add(
-    "show"
-  );
-
-}
-
-function closeModal(){
-
-  document
-    .getElementById(
-      "productModal"
-    )
-    .classList.remove(
-      "show"
-    );
-
-  currentModalProduct =
-    null;
-
-}
-
-document
-  .getElementById(
-    "productModal"
-  )
-  .addEventListener(
-    "click",
-    event => {
-
-      if(
-        event.target.id ===
-        "productModal"
-      ){
-
-        closeModal();
-
-      }
-
-    }
-  );
-
-/* =========================
-   WHATSAPP PRODUCTO
-========================= */
-
-function buyModalProduct(){
-
-  if(!currentModalProduct){
-
-    return;
+    details +=
+      "📏 Tallas: " +
+      product.sizes +
+      "<br>";
 
   }
 
-  const product =
-    currentModalProduct;
 
-  const message =
+  if(product.colors){
 
-`Hola, GarChéz Boutique 👋
+    details +=
+      "🎨 Colores: " +
+      product.colors +
+      "<br>";
 
-Me interesa este producto:
+  }
 
-🛍️ ${product.name}
-💰 ${formatPrice(product.price)}
 
-${
-  product.sizes
-  ?
-  `📏 Talla: ${product.sizes}\n`
-  :
-  ""
-}
+  details +=
+    "📦 Disponibilidad: " +
+    product.availability;
 
-${
-  product.colors
-  ?
-  `🎨 Color: ${product.colors}\n`
-  :
-  ""
-}
 
-¿Me pueden dar más información?`;
+  document.getElementById(
+    "modalDetails"
+  ).innerHTML =
+    details;
 
-  window.open(
-    "https://wa.me/" +
-    PHONE +
-    "?text=" +
-    encodeURIComponent(
-      message
-    ),
-    "_blank"
+
+  document.getElementById(
+    "modalBuy"
+  ).onclick =
+    function(){
+
+      buyProduct(
+        product.id
+      );
+
+    };
+
+
+  productModal.classList.add(
+    "show"
   );
 
+
+  document.body.style.overflow =
+    "hidden";
+
 }
+
+
+function closeProductModal(){
+
+  productModal.classList.remove(
+    "show"
+  );
+
+  document.body.style.overflow =
+    "";
+
+}
+
 
 /* =========================
    CARRITO
 ========================= */
 
-function addToCartByIndex(
-  index
-){
+function addToCart(id){
 
   const product =
-    allProducts[index];
+    findProduct(id);
 
-  if(product){
 
-    addToCart(product);
-
+  if(!product){
+    return;
   }
 
-}
-
-function addModalToCart(){
-
-  if(
-    currentModalProduct
-  ){
-
-    addToCart(
-      currentModalProduct
-    );
-
-    closeModal();
-
-    openCart();
-
-  }
-
-}
-
-function addToCart(
-  product
-){
 
   const existing =
     cart.find(
       item =>
-        item.id ===
-        product.id
+        item.product.id === id
     );
+
 
   if(existing){
 
-    existing.quantity += 1;
+    existing.quantity++;
 
   }else{
 
     cart.push({
-
-      ...product,
-
+      product:product,
       quantity:1
-
     });
 
   }
 
-  saveCart();
-
-  updateCart();
-
-}
-
-/* =========================
-   CAMBIAR CANTIDAD
-========================= */
-
-function changeQuantity(
-  id,
-  amount
-){
-
-  const item =
-    cart.find(
-      product =>
-        product.id === id
-    );
-
-  if(!item){
-
-    return;
-
-  }
-
-  item.quantity +=
-    amount;
-
-  if(
-    item.quantity <= 0
-  ){
-
-    cart =
-      cart.filter(
-        product =>
-          product.id !== id
-      );
-
-  }
 
   saveCart();
 
-  updateCart();
+  renderCart();
+
+  showToast(
+    "Producto agregado al carrito 🛒"
+  );
 
 }
 
-/* =========================
-   ELIMINAR
-========================= */
-
-function removeFromCart(
-  id
-){
-
-  cart =
-    cart.filter(
-      product =>
-        product.id !== id
-    );
-
-  saveCart();
-
-  updateCart();
-
-}
 
 /* =========================
    GUARDAR CARRITO
@@ -2160,15 +2871,34 @@ function removeFromCart(
 
 function saveCart(){
 
-  localStorage.setItem(
-    "garchez_cart",
-    JSON.stringify(cart)
-  );
+  try{
+
+    localStorage.setItem(
+      "garchez_cart",
+      JSON.stringify(
+        cart.map(
+          item => ({
+            id:item.product.id,
+            quantity:item.quantity
+          })
+        )
+      )
+    );
+
+  }catch(error){
+
+    console.log(
+      "No se pudo guardar el carrito.",
+      error
+    );
+
+  }
 
 }
 
+
 /* =========================
-   CARGAR CARRITO
+   RECUPERAR CARRITO
 ========================= */
 
 function loadCart(){
@@ -2176,63 +2906,85 @@ function loadCart(){
   try{
 
     const saved =
-      localStorage.getItem(
-        "garchez_cart"
+      JSON.parse(
+        localStorage.getItem(
+          "garchez_cart"
+        ) || "[]"
       );
+
+
+    if(!Array.isArray(saved)){
+      return;
+    }
+
 
     cart =
       saved
-      ?
-      JSON.parse(saved)
-      :
-      [];
+        .map(item => {
+
+          const product =
+            findProduct(
+              item.id
+            );
+
+          if(!product){
+            return null;
+          }
+
+          return {
+            product:product,
+            quantity:
+              Math.max(
+                1,
+                Number(item.quantity) || 1
+              )
+          };
+
+        })
+        .filter(Boolean);
+
+
+    renderCart();
 
   }catch(error){
 
-    cart = [];
+    console.log(
+      "Error recuperando carrito.",
+      error
+    );
 
   }
 
-  updateCart();
-
 }
 
+
 /* =========================
-   ACTUALIZAR CARRITO
+   RENDER CARRITO
 ========================= */
 
-function updateCart(){
+function renderCart(){
 
-  const count =
+  const totalItems =
     cart.reduce(
-      (
-        total,
-        item
-      ) =>
-        total +
-        item.quantity,
+      (sum,item) =>
+        sum + item.quantity,
       0
     );
 
-  document.getElementById(
-    "cartCount"
-  ).textContent =
-    count;
 
-  const container =
-    document.getElementById(
-      "cartItems"
-    );
+  cartCount.textContent =
+    totalItems;
 
-  if(!cart.length){
 
-    container.innerHTML = `
+  if(cart.length === 0){
+
+    cartItems.innerHTML = `
 
       <div class="cart-empty">
 
-        🛍️
-
-        <br><br>
+        <div style="font-size:40px;margin-bottom:12px;">
+          🛒
+        </div>
 
         Tu carrito está vacío.
 
@@ -2240,143 +2992,417 @@ function updateCart(){
 
     `;
 
-  }else{
+    cartTotal.textContent =
+      "C$ 0";
 
-    container.innerHTML =
-
-      cart
-        .map(
-          item => `
-
-            <div class="cart-item">
-
-              <img
-                src="${escapeHTML(item.image)}"
-                alt="${escapeHTML(item.name)}"
-                onerror="this.onerror=null;this.src='logo%20garchez.jpeg'"
-              >
-
-              <div>
-
-                <h4>
-                  ${escapeHTML(item.name)}
-                </h4>
-
-                <div class="cart-item-price">
-
-                  ${formatPrice(item.price)}
-
-                </div>
-
-                <div class="qty">
-
-                  <button
-                    onclick="changeQuantity('${escapeJS(item.id)}',-1)"
-                  >
-                    −
-                  </button>
-
-                  <span>
-                    ${item.quantity}
-                  </span>
-
-                  <button
-                    onclick="changeQuantity('${escapeJS(item.id)}',1)"
-                  >
-                    +
-                  </button>
-
-                </div>
-
-              </div>
-
-              <button
-                class="remove"
-                onclick="removeFromCart('${escapeJS(item.id)}')"
-              >
-                ×
-              </button>
-
-            </div>
-
-          `
-        )
-        .join("");
+    return;
 
   }
 
-  document.getElementById(
-    "cartTotal"
-  ).textContent =
 
-    "C$" +
-    cartTotal()
-      .toLocaleString(
-        "es-NI"
-      );
+  cartItems.innerHTML =
+    cart.map(
+      item =>
+        createCartItem(item)
+    ).join("");
 
-}
 
-/* =========================
-   TOTAL
-========================= */
+  const total =
+    cart.reduce(
+      (sum,item) => {
 
-function cartTotal(){
+        return (
+          sum +
+          numericPrice(
+            item.product.price
+          ) *
+          item.quantity
+        );
 
-  return cart.reduce(
-    (
-      total,
-      item
-    ) => {
-
-      return (
-        total +
-        parsePrice(
-          item.price
-        ) *
-        item.quantity
-      );
-
-    },
-    0
-  );
-
-}
-
-/* =========================
-   PRECIO
-========================= */
-
-function parsePrice(
-  value
-){
-
-  const text =
-    String(
-      value || ""
+      },
+      0
     );
 
-  const number =
-    text
-      .replace(
-        /[^\d.,]/g,
-        ""
-      )
-      .replace(
-        /,/g,
-        ""
+
+  cartTotal.textContent =
+    formatPrice(total);
+
+}
+
+
+/* =========================
+   ITEM CARRITO
+========================= */
+
+function createCartItem(item){
+
+  const product =
+    item.product;
+
+
+  return `
+
+    <div class="cart-item">
+
+      <img
+        src="${escapeHtml(product.image || "")}"
+        alt="${escapeHtml(product.name)}"
+        onerror="this.style.visibility='hidden';"
+      >
+
+      <div>
+
+        <div class="cart-item-name">
+          ${escapeHtml(product.name)}
+        </div>
+
+        <div class="cart-item-price">
+          ${escapeHtml(formatPrice(product.price))}
+        </div>
+
+        <div class="quantity">
+
+          <button
+            onclick="changeQuantity('${escapeJs(product.id)}',-1)"
+          >
+            −
+          </button>
+
+          <strong>
+            ${item.quantity}
+          </strong>
+
+          <button
+            onclick="changeQuantity('${escapeJs(product.id)}',1)"
+          >
+            +
+          </button>
+
+        </div>
+
+      </div>
+
+      <button
+        class="remove-item"
+        onclick="removeFromCart('${escapeJs(product.id)}')"
+        title="Eliminar"
+      >
+        🗑️
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================
+   CAMBIAR CANTIDAD
+========================= */
+
+function changeQuantity(
+  id,
+  change
+){
+
+  const item =
+    cart.find(
+      item =>
+        item.product.id === id
+    );
+
+
+  if(!item){
+    return;
+  }
+
+
+  item.quantity +=
+    change;
+
+
+  if(item.quantity <= 0){
+
+    cart =
+      cart.filter(
+        cartItem =>
+          cartItem.product.id !== id
       );
 
-  return (
-    parseFloat(
-      number
-    ) || 0
+  }
+
+
+  saveCart();
+
+  renderCart();
+
+}
+
+
+/* =========================
+   ELIMINAR
+========================= */
+
+function removeFromCart(id){
+
+  cart =
+    cart.filter(
+      item =>
+        item.product.id !== id
+    );
+
+
+  saveCart();
+
+  renderCart();
+
+}
+
+
+/* =========================
+   ABRIR CARRITO
+========================= */
+
+function openCart(){
+
+  cartPanel.classList.add(
+    "open"
+  );
+
+  overlay.classList.add(
+    "show"
+  );
+
+  document.body.style.overflow =
+    "hidden";
+
+}
+
+
+/* =========================
+   CERRAR CARRITO
+========================= */
+
+function closeCart(){
+
+  cartPanel.classList.remove(
+    "open"
+  );
+
+  overlay.classList.remove(
+    "show"
+  );
+
+  document.body.style.overflow =
+    "";
+
+}
+
+
+/* =========================
+   CHECKOUT WHATSAPP
+========================= */
+
+function checkoutWhatsApp(){
+
+  if(cart.length === 0){
+
+    showToast(
+      "Tu carrito está vacío."
+    );
+
+    return;
+
+  }
+
+
+  let message =
+    "Hola 👋, quiero realizar un pedido en GarChéz Boutique 🇳🇮\n\n";
+
+  message +=
+    "🛍️ *Mi pedido:*\n";
+
+
+  let total = 0;
+
+
+  cart.forEach(
+    (item,index) => {
+
+      const product =
+        item.product;
+
+
+      const price =
+        numericPrice(
+          product.price
+        );
+
+
+      const subtotal =
+        price *
+        item.quantity;
+
+
+      total +=
+        subtotal;
+
+
+      message +=
+        "\n" +
+        (index + 1) +
+        ". " +
+        product.name +
+        "\n";
+
+
+      message +=
+        "   Cantidad: " +
+        item.quantity +
+        "\n";
+
+
+      message +=
+        "   Precio: " +
+        formatPrice(
+          product.price
+        ) +
+        "\n";
+
+    }
+  );
+
+
+  message +=
+    "\n💰 *Total estimado: " +
+    formatPrice(total) +
+    "*\n";
+
+
+  message +=
+    "\n🚚 Envíos a toda 🇳🇮 Nicaragua.\n";
+
+
+  message +=
+    "🚚 Envío GRATIS 📍 Chinandega y El Viejo 🇳🇮\n";
+
+
+  message +=
+    "\nQuedo pendiente de confirmar disponibilidad y entrega. 😊";
+
+
+  const url =
+    "https://wa.me/" +
+    PHONE +
+    "?text=" +
+    encodeURIComponent(
+      message
+    );
+
+
+  window.open(
+    url,
+    "_blank"
   );
 
 }
 
-function formatPrice(
-  value
-){
 
-  if(
+/* =========================
+   TOAST
+========================= */
+
+let toastTimer;
+
+
+function showToast(message){
+
+  const toast =
+    document.getElementById(
+      "toast"
+    );
+
+
+  toast.textContent =
+    message;
+
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  clearTimeout(
+    toastTimer
+  );
+
+
+  toastTimer =
+    setTimeout(
+      () => {
+
+        toast.classList.remove(
+          "show"
+        );
+
+      },
+      2200
+    );
+
+}
+
+
+/* =========================
+   BUSCADOR
+========================= */
+
+searchInput.addEventListener(
+  "input",
+  function(){
+
+    applyFilters();
+
+  }
+);
+
+
+/* =========================
+   TECLA ESC
+========================= */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Escape"){
+
+      closeProductModal();
+
+      closeCart();
+
+    }
+
+  }
+);
+
+
+/* =========================
+   INICIO
+========================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  async function(){
+
+    await loadProducts();
+
+    loadCart();
+
+  }
+);
+
+</script>
+
+</body>
+</html>
