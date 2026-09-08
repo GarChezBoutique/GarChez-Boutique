@@ -3,8 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>GarChéz Boutique | Moda en Nicaragua</title>
-<meta name="description" content="GarChéz Boutique. Moda, calzado, bolsos y accesorios. Envíos a toda 🇳🇮 Nicaragua.">
+
+<meta
+  name="description"
+  content="GarChéz Boutique. Moda, calzado, bolsos y accesorios. Envíos a toda 🇳🇮 Nicaragua."
+>
 
 <style>
 :root{
@@ -13,15 +18,20 @@
   --cream:#f8f5f1;
   --white:#fff;
   --gold:#b59663;
-  --pink:#ead5d5;
   --gray:#777;
   --line:#e8e3dd;
   --green:#25D366;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   font-family:Arial,Helvetica,sans-serif;
@@ -29,13 +39,24 @@ body{
   color:var(--black);
 }
 
-button,input{font:inherit}
+button,
+input{
+  font:inherit;
+}
 
-button{cursor:pointer}
+button{
+  cursor:pointer;
+}
 
-a{text-decoration:none;color:inherit}
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
+
 header{
   position:sticky;
   top:0;
@@ -57,15 +78,16 @@ header{
 }
 
 .logo{
-  width:170px;
-  max-height:62px;
+  width:120px;
+  height:55px;
   object-fit:contain;
+  object-position:center;
+  display:block;
 }
 
 .search{
   flex:1;
   max-width:520px;
-  position:relative;
 }
 
 .search input{
@@ -141,14 +163,22 @@ nav{
   color:var(--gold);
 }
 
-/* HERO */
+/* =========================
+   HERO / PORTADA
+========================= */
+
 .hero{
   min-height:500px;
   background-image:
-    linear-gradient(90deg,rgba(255,255,255,.08),rgba(0,0,0,.03)),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.08),
+      rgba(0,0,0,.03)
+    ),
     url("./portada.png");
   background-size:cover;
-  background-position:center;
+  background-position:center center;
+  background-repeat:no-repeat;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -157,11 +187,13 @@ nav{
 .hero-content{
   width:100%;
   max-width:1400px;
-  padding:60px 25px;
   min-height:500px;
 }
 
-/* BENEFICIOS */
+/* =========================
+   BENEFICIOS
+========================= */
+
 .benefits{
   background:#111;
   color:#fff;
@@ -176,9 +208,14 @@ nav{
   font-size:14px;
 }
 
-.benefit:last-child{border-right:0}
+.benefit:last-child{
+  border-right:0;
+}
 
-/* CATALOGO */
+/* =========================
+   CATALOGO
+========================= */
+
 .catalog{
   max-width:1400px;
   margin:auto;
@@ -223,6 +260,10 @@ nav{
   border-color:#111;
 }
 
+/* =========================
+   PRODUCTOS
+========================= */
+
 .products{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -247,6 +288,7 @@ nav{
   aspect-ratio:1/1.08;
   object-fit:cover;
   background:#f5f5f5;
+  display:block;
 }
 
 .product-info{
@@ -265,6 +307,7 @@ nav{
   font-size:16px;
   font-weight:600;
   margin-bottom:10px;
+  line-height:1.35;
 }
 
 .price{
@@ -310,7 +353,10 @@ nav{
   color:#777;
 }
 
-/* MODAL PRODUCTO */
+/* =========================
+   MODAL
+========================= */
+
 .modal{
   position:fixed;
   inset:0;
@@ -322,7 +368,9 @@ nav{
   padding:20px;
 }
 
-.modal.show{display:flex}
+.modal.show{
+  display:flex;
+}
 
 .modal-box{
   width:min(900px,100%);
@@ -382,15 +430,29 @@ nav{
   line-height:1.7;
   color:#555;
   margin-bottom:20px;
+  white-space:pre-line;
 }
 
 .modal-data{
   color:#555;
   line-height:1.8;
   margin-bottom:20px;
+  white-space:pre-line;
 }
 
-/* CARRITO */
+.modal-buttons{
+  display:flex;
+  gap:10px;
+}
+
+.modal-buttons button{
+  flex:1;
+}
+
+/* =========================
+   CARRITO
+========================= */
+
 .cart-drawer{
   position:fixed;
   top:0;
@@ -405,7 +467,9 @@ nav{
   flex-direction:column;
 }
 
-.cart-drawer.open{right:0}
+.cart-drawer.open{
+  right:0;
+}
 
 .cart-header{
   padding:20px;
@@ -506,7 +570,10 @@ nav{
   padding:60px 20px;
 }
 
-/* OVERLAY */
+/* =========================
+   OVERLAY
+========================= */
+
 .overlay{
   position:fixed;
   inset:0;
@@ -515,9 +582,14 @@ nav{
   display:none;
 }
 
-.overlay.show{display:block}
+.overlay.show{
+  display:block;
+}
 
-/* WHATSAPP */
+/* =========================
+   WHATSAPP
+========================= */
+
 .whatsapp{
   position:fixed;
   right:20px;
@@ -543,7 +615,10 @@ nav{
   height:34px;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
+
 footer{
   background:#111;
   color:#fff;
@@ -591,8 +666,12 @@ footer{
   font-size:13px;
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media(max-width:1050px){
+
   .products{
     grid-template-columns:repeat(3,1fr);
   }
@@ -609,12 +688,14 @@ footer{
 }
 
 @media(max-width:750px){
+
   .header-top{
     padding:10px 15px;
   }
 
   .logo{
-    width:135px;
+    width:120px;
+    height:50px;
   }
 
   .header-actions{
@@ -685,6 +766,7 @@ footer{
 }
 
 @media(max-width:430px){
+
   .products{
     grid-template-columns:repeat(2,1fr);
   }
@@ -709,28 +791,46 @@ footer{
 
 <body>
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
   <div class="header-top">
 
     <a href="#inicio">
-      <img class="logo" src="logo%20garchez.jpeg" alt="GarChéz Boutique">
+      <img
+        class="logo"
+        src="logo%20garchez.jpeg"
+        alt="GarChéz Boutique"
+      >
     </a>
 
     <div class="search">
+
       <input
         id="searchInput"
         type="search"
         placeholder="Buscar productos..."
         oninput="searchProducts(this.value)"
       >
+
     </div>
 
     <div class="header-actions">
 
-      <button class="header-btn" onclick="openCart()">
+      <button
+        class="header-btn"
+        onclick="openCart()"
+      >
         🛍️ Carrito
-        <span class="cart-count" id="cartCount">0</span>
+
+        <span
+          class="cart-count"
+          id="cartCount"
+        >0</span>
+
       </button>
 
     </div>
@@ -738,147 +838,316 @@ footer{
   </div>
 
   <nav>
+
     <div class="nav-inner">
 
       <a href="#inicio">Inicio</a>
+
       <a href="#catalogo">Catálogo</a>
-      <a href="#catalogo" onclick="filterCategory('Damas')">Damas</a>
-      <a href="#catalogo" onclick="filterCategory('Caballeros')">Caballeros</a>
-      <a href="#catalogo" onclick="filterCategory('Calzado')">Calzado</a>
-      <a href="#catalogo" onclick="filterCategory('Bolsos')">Bolsos</a>
-      <a href="#catalogo" onclick="filterCategory('Gorras y Sombreros')">Gorras y Sombreros</a>
-      <a href="#catalogo" onclick="filterCategory('Relojes')">Relojes</a>
-      <a href="#catalogo" onclick="filterCategory('Accesorios')">Accesorios</a>
-      <a href="#catalogo" onclick="filterCategory('Temporada')">Temporada</a>
-      <a href="#catalogo" onclick="filterCategory('Hogar')">Hogar</a>
-      <a href="#catalogo" onclick="filterCategory('Lo Nuevo')">Lo Nuevo</a>
-      <a href="#catalogo" onclick="filterCategory('Ofertas')">Ofertas</a>
+
+      <a
+        href="#catalogo"
+        onclick="filterCategory('Damas')"
+      >
+        Damas
+      </a>
+
+      <a
+        href="#catalogo"
+        onclick="filterCategory('Caballeros')"
+      >
+        Caballeros
+      </a>
+
+      <a
+        href="#catalogo"
+        onclick="filterCategory('Calzado')"
+      >
+        Calzado
+      </a>
+
+      <a
+        href="#catalogo"
+        onclick="filterCategory('Bolsos')"
+      >
+        Bolsos
+      </a>
+
+      <a
+        href="#catalogo"
+        onclick="filterCategory('Gorras y Sombreros')"
+      >
+        Gorras y Sombreros
+      </a>
+
+      <a
+        href="#catalogo"
+        onclick="filterCategory('Relojes')"
+      >
+        Relojes
+      </a>
+
+      <a
+        href="#catalogo"
+        onclick="filterCategory('Accesorios')"
+      >
+        Accesorios
+      </a>
+
+      <a
+        href="#catalogo"
+        onclick="filterCategory('Temporada')"
+      >
+        Temporada
+      </a>
+
+      <a
+        href="#catalogo"
+        onclick="filterCategory('Hogar')"
+      >
+        Hogar
+      </a>
+
+      <a
+        href="#catalogo"
+        onclick="filterCategory('Lo Nuevo')"
+      >
+        Lo Nuevo
+      </a>
+
+      <a
+        href="#catalogo"
+        onclick="filterCategory('Ofertas')"
+      >
+        Ofertas
+      </a>
 
     </div>
+
   </nav>
 
 </header>
 
+<!-- =========================
+     MAIN
+========================= -->
+
 <main id="inicio">
 
   <section class="hero">
+
     <div class="hero-content"></div>
+
   </section>
 
   <section class="benefits">
 
     <div class="benefit">
-      🇳🇮 <strong>Envíos a toda Nicaragua</strong>
+      🇳🇮
+      <strong>
+        Envíos a toda 🇳🇮 Nicaragua
+      </strong>
     </div>
 
     <div class="benefit">
-      🚚 <strong>Envíos con CargoTrans</strong>
+      🚚
+      <strong>
+        Envíos con CargoTrans
+      </strong>
     </div>
 
     <div class="benefit">
-      📍 <strong>Envío GRATIS Chinandega y El Viejo</strong>
+      📍
+      <strong>
+        Envío GRATIS 📍 Chinandega y El Viejo 🇳🇮
+      </strong>
     </div>
 
     <div class="benefit">
-      💬 <strong>Compra fácil por WhatsApp</strong>
+      💬
+      <strong>
+        Compra fácil por WhatsApp
+      </strong>
     </div>
 
   </section>
 
-  <section class="catalog" id="catalogo">
+  <section
+    class="catalog"
+    id="catalogo"
+  >
 
     <div class="section-head">
-      <h1>Todos nuestros productos</h1>
-      <p>Encuentra tu próximo favorito en GarChéz Boutique.</p>
+
+      <h1>
+        Todos nuestros productos
+      </h1>
+
+      <p>
+        Encuentra tu próximo favorito en GarChéz Boutique.
+      </p>
+
     </div>
 
     <div class="filters">
 
-      <button class="filter active" onclick="filterCategory('Todos')">
+      <button
+        class="filter active"
+        onclick="filterCategory('Todos')"
+      >
         Todos
       </button>
 
-      <button class="filter" onclick="filterCategory('Damas')">
+      <button
+        class="filter"
+        onclick="filterCategory('Damas')"
+      >
         Damas
       </button>
 
-      <button class="filter" onclick="filterCategory('Caballeros')">
+      <button
+        class="filter"
+        onclick="filterCategory('Caballeros')"
+      >
         Caballeros
       </button>
 
-      <button class="filter" onclick="filterCategory('Calzado')">
+      <button
+        class="filter"
+        onclick="filterCategory('Calzado')"
+      >
         Calzado
       </button>
 
-      <button class="filter" onclick="filterCategory('Bolsos')">
+      <button
+        class="filter"
+        onclick="filterCategory('Bolsos')"
+      >
         Bolsos
       </button>
 
-      <button class="filter" onclick="filterCategory('Gorras y Sombreros')">
+      <button
+        class="filter"
+        onclick="filterCategory('Gorras y Sombreros')"
+      >
         Gorras y Sombreros
       </button>
 
-      <button class="filter" onclick="filterCategory('Relojes')">
+      <button
+        class="filter"
+        onclick="filterCategory('Relojes')"
+      >
         Relojes
       </button>
 
-      <button class="filter" onclick="filterCategory('Accesorios')">
+      <button
+        class="filter"
+        onclick="filterCategory('Accesorios')"
+      >
         Accesorios
       </button>
 
-      <button class="filter" onclick="filterCategory('Temporada')">
+      <button
+        class="filter"
+        onclick="filterCategory('Temporada')"
+      >
         Temporada
       </button>
 
-      <button class="filter" onclick="filterCategory('Hogar')">
+      <button
+        class="filter"
+        onclick="filterCategory('Hogar')"
+      >
         Hogar
       </button>
 
-      <button class="filter" onclick="filterCategory('Lo Nuevo')">
+      <button
+        class="filter"
+        onclick="filterCategory('Lo Nuevo')"
+      >
         Lo Nuevo
       </button>
 
-      <button class="filter" onclick="filterCategory('Ofertas')">
+      <button
+        class="filter"
+        onclick="filterCategory('Ofertas')"
+      >
         Ofertas
       </button>
 
     </div>
 
-    <div class="products" id="productsContainer"></div>
+    <div
+      class="products"
+      id="productsContainer"
+    ></div>
 
   </section>
 
 </main>
 
-<!-- MODAL PRODUCTO -->
+<!-- =========================
+     MODAL PRODUCTO
+========================= -->
 
-<div class="modal" id="productModal">
+<div
+  class="modal"
+  id="productModal"
+>
 
   <div class="modal-box">
 
-    <button class="close" onclick="closeModal()">×</button>
+    <button
+      class="close"
+      onclick="closeModal()"
+    >
+      ×
+    </button>
 
-    <img id="modalImage" class="modal-img" src="" alt="Producto">
+    <img
+      id="modalImage"
+      class="modal-img"
+      src=""
+      alt=""
+    >
 
     <div class="modal-info">
 
-      <div id="modalCategory" class="modal-category"></div>
+      <div
+        class="modal-category"
+        id="modalCategory"
+      ></div>
 
       <h2 id="modalName"></h2>
 
-      <div id="modalPrice" class="modal-price"></div>
+      <div
+        class="modal-price"
+        id="modalPrice"
+      ></div>
 
-      <div id="modalDescription" class="modal-description"></div>
+      <div
+        class="modal-description"
+        id="modalDescription"
+      ></div>
 
-      <div id="modalData" class="modal-data"></div>
+      <div
+        class="modal-data"
+        id="modalData"
+      ></div>
 
-      <div class="product-actions">
+      <div class="modal-buttons">
 
-        <button class="btn btn-cart" onclick="addModalToCart()">
+        <button
+          class="btn btn-cart"
+          onclick="addModalToCart()"
+        >
           🛍️ Agregar al carrito
         </button>
 
-        <button class="btn btn-buy" onclick="buyModalProduct()">
+        <button
+          class="btn btn-buy"
+          onclick="buyModalProduct()"
+        >
           💬 WhatsApp
         </button>
 
@@ -890,52 +1159,88 @@ footer{
 
 </div>
 
-<!-- CARRITO -->
+<!-- =========================
+     CARRITO
+========================= -->
 
-<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<div
+  class="overlay"
+  id="overlay"
+  onclick="closeCart()"
+></div>
 
-<aside class="cart-drawer" id="cartDrawer">
+<aside
+  class="cart-drawer"
+  id="cartDrawer"
+>
 
   <div class="cart-header">
 
-    <h2>Mi carrito</h2>
+    <h2>
+      Tu carrito
+    </h2>
 
-    <button class="cart-close" onclick="closeCart()">×</button>
+    <button
+      class="cart-close"
+      onclick="closeCart()"
+    >
+      ×
+    </button>
 
   </div>
 
-  <div class="cart-items" id="cartItems"></div>
+  <div
+    class="cart-items"
+    id="cartItems"
+  ></div>
 
   <div class="cart-footer">
 
     <div class="total">
-      <span>Total</span>
-      <span id="cartTotal">C$0</span>
+
+      <span>
+        Total
+      </span>
+
+      <span id="cartTotal">
+        C$0
+      </span>
+
     </div>
 
-    <button class="checkout" onclick="checkoutWhatsApp()">
-      💬 Finalizar pedido por WhatsApp
+    <button
+      class="checkout"
+      onclick="checkoutWhatsApp()"
+    >
+      💬 Comprar por WhatsApp
     </button>
 
   </div>
 
 </aside>
 
-<!-- WHATSAPP -->
+<!-- =========================
+     WHATSAPP
+========================= -->
 
 <a
   class="whatsapp"
   href="https://wa.me/50587961399"
   target="_blank"
   rel="noopener"
-  aria-label="WhatsApp"
   title="Escríbenos por WhatsApp"
 >
+
   <img
     src="https://cdn.simpleicons.org/whatsapp/ffffff"
     alt="WhatsApp"
   >
+
 </a>
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -950,388 +1255,705 @@ footer{
       >
 
       <p>
-        Moda, estilo y productos seleccionados para ti.
-        Compra de forma fácil y segura por WhatsApp.
+        GarChéz Boutique
+      </p>
+
+      <p>
+        Moda, calzado, bolsos y accesorios
+        para toda 🇳🇮 Nicaragua.
+      </p>
+
+      <p>
+        🚚 Envíos a toda 🇳🇮 Nicaragua.
+      </p>
+
+      <p>
+        📍 Envío GRATIS en Chinandega y El Viejo 🇳🇮
       </p>
 
     </div>
 
     <div class="footer-col">
 
-      <h3>Envíos</h3>
+      <h3>
+        Categorías
+      </h3>
 
-      <p>🚚 Envíos a toda 🇳🇮 Nicaragua</p>
-      <p>🚚 CargoTrans</p>
-      <p>📍 GRATIS en Chinandega y El Viejo 🇳🇮</p>
+      <ul>
+
+        <li>Damas</li>
+        <li>Caballeros</li>
+        <li>Calzado</li>
+        <li>Bolsos</li>
+        <li>Accesorios</li>
+        <li>Relojes</li>
+
+      </ul>
 
     </div>
 
     <div class="footer-col">
 
-      <h3>GarChéz Boutique</h3>
+      <h3>
+        Compra
+      </h3>
 
-      <p>Kevin Garcia</p>
-      <p>Keyling Sanchez</p>
-      <p>WhatsApp: 87961399</p>
+      <ul>
+
+        <li>🛍️ Carrito</li>
+        <li>💬 WhatsApp</li>
+        <li>🚚 Envíos</li>
+        <li>🇳🇮 Nicaragua</li>
+
+      </ul>
 
     </div>
 
   </div>
 
   <div class="footer-bottom">
-    © 2026 GarChéz Boutique. Todos los derechos reservados.
+
+    © 2026 GarChéz Boutique.
+    Todos los derechos reservados.
+
   </div>
 
 </footer>
 
 <script>
 
+/* =========================
+   CONFIGURACIÓN
+========================= */
+
 const PHONE = "50587961399";
 
-let allProducts = [];
-let filteredProducts = [];
-let currentCategory = "Todos";
-let currentSearch = "";
-let currentModalProduct = null;
+const RAW_BASE =
+  "https://raw.githubusercontent.com/ladygarcia130299/Garchez-Boutique-/main/";
 
-let cart = JSON.parse(
-  localStorage.getItem("garchez_cart") || "[]"
-);
+const DATA_BASE =
+  RAW_BASE + "data/";
 
+const ASSETS_BASE =
+  RAW_BASE + "assets/";
+
+const SOURCES = [
+
+  ["Damas","damas.json"],
+
+  ["Caballeros","caballeros.json"],
+
+  ["Calzado","calzado.json"],
+
+  ["Bolsos","bolsos.json"],
+
+  ["Accesorios","accesorios.json"],
+
+  ["Gorras y Sombreros","gorras-sombreros.json"],
+
+  ["Hogar","hogar.json"],
+
+  ["Lo Nuevo","lo-nuevo.json"],
+
+  ["Ofertas","ofertas.json"],
+
+  ["Relojes","relojes.json"],
+
+  ["Temporada","temporada.json"]
+
+];
 
 /* =========================
-   PRODUCTOS
+   VARIABLES
+========================= */
+
+let allProducts = [];
+
+let filteredProducts = [];
+
+let currentCategory = "Todos";
+
+let currentSearch = "";
+
+let currentModalProduct = null;
+
+let cart = [];
+
+/* =========================
+   INICIO
+========================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+
+    loadCart();
+
+    loadProducts();
+
+  }
+);
+
+/* =========================
+   CARGAR PRODUCTOS CMS
 ========================= */
 
 async function loadProducts(){
 
-  try{
+  const requests =
+    SOURCES.map(
+      async ([category,file]) => {
 
-    const response = await fetch(
-      "data/productos.json?v=" + Date.now()
-    );
+        try{
 
-    if(!response.ok){
-      throw new Error("No se pudo cargar productos");
-    }
+          const response =
+            await fetch(
+              DATA_BASE +
+              file +
+              "?v=" +
+              Date.now()
+            );
 
-    const data = await response.json();
+          if(!response.ok){
 
-    let products = [];
+            console.log(
+              "No encontrado:",
+              file
+            );
 
-    if(Array.isArray(data)){
-      products = data;
-    }else if(Array.isArray(data.productos)){
-      products = data.productos;
-    }else if(Array.isArray(data.items)){
-      products = data.items;
-    }else if(Array.isArray(data.data)){
-      products = data.data;
-    }
+            return [];
 
-    allProducts = products.map(normalizeProduct);
+          }
 
-    filteredProducts = [...allProducts];
+          const data =
+            await response.json();
 
-    renderProducts();
+          if(!Array.isArray(data)){
 
-  }catch(error){
+            return [];
 
-    console.log(error);
+          }
 
-    allProducts = [];
+          return data.map(
+            (product,index) => {
 
-    filteredProducts = [];
+              return normalizeProduct(
+                product,
+                category,
+                index
+              );
 
-    renderProducts();
-
-  }
-
-}
-
-
-/* =========================
-   NORMALIZAR PRODUCTO
-========================= */
-
-function normalizeProduct(p){
-
-  return {
-
-    id:
-      p.id ||
-      p.slug ||
-      crypto.randomUUID(),
-
-    name:
-      p.nombre ||
-      p.name ||
-      p.titulo ||
-      "Producto",
-
-    image:
-      p.foto ||
-      p.imagen ||
-      p.image ||
-      p.url ||
-      "logo%20garchez.jpeg",
-
-    price:
-      p.precio ||
-      p.price ||
-      "Consultar",
-
-    oldPrice:
-      p.precioAnterior ||
-      p.precio_anterior ||
-      p.oldPrice ||
-      "",
-
-    category:
-      p.categoria ||
-      p.category ||
-      "Otros",
-
-    sizes:
-      p.tallas ||
-      p.sizes ||
-      "",
-
-    colors:
-      p.colores ||
-      p.colors ||
-      "",
-
-    description:
-      p.descripcion ||
-      p.description ||
-      ""
-
-  };
-
-}
-
-
-/* =========================
-   RENDER
-========================= */
-
-function renderProducts(){
-
-  const container =
-    document.getElementById("productsContainer");
-
-  if(!filteredProducts.length){
-
-    container.innerHTML = `
-      <div class="empty">
-        <h3>No hay productos para mostrar</h3>
-        <p>Los productos publicados aparecerán aquí automáticamente.</p>
-      </div>
-    `;
-
-    return;
-  }
-
-  container.innerHTML =
-    filteredProducts.map(product => {
-
-      const index =
-        allProducts.findIndex(
-          p => p.id === product.id
-        );
-
-      return `
-
-        <article class="product">
-
-          <img
-            class="product-img"
-            src="${escapeHTML(product.image)}"
-            alt="${escapeHTML(product.name)}"
-            loading="lazy"
-            onerror="this.src='logo%20garchez.jpeg'"
-          >
-
-          <div class="product-info">
-
-            <div class="product-category">
-              ${escapeHTML(product.category)}
-            </div>
-
-            <div class="product-name">
-              ${escapeHTML(product.name)}
-            </div>
-
-            <div class="price">
-              ${formatPrice(product.price)}
-
-              ${
-                product.oldPrice
-                ?
-                `<span class="old-price">
-                  ${formatPrice(product.oldPrice)}
-                </span>`
-                :
-                ""
-              }
-
-            </div>
-
-            <div class="product-actions">
-
-              <button
-                class="btn btn-cart"
-                onclick="addToCartByIndex(${index})"
-              >
-                🛍️ Agregar
-              </button>
-
-              <button
-                class="btn btn-buy"
-                onclick="openProduct(${index})"
-              >
-                Ver
-              </button>
-
-            </div>
-
-          </div>
-
-        </article>
-
-      `;
-
-    }).join("");
-
-}
-
-
-/* =========================
-   FILTROS
-========================= */
-
-function filterCategory(category){
-
-  currentCategory = category;
-
-  document
-    .querySelectorAll(".filter")
-    .forEach(btn => {
-
-      btn.classList.toggle(
-        "active",
-        btn.textContent.trim() === category
-      );
-
-    });
-
-  applyFilters();
-
-}
-
-
-function searchProducts(text){
-
-  currentSearch = text.toLowerCase().trim();
-
-  applyFilters();
-
-}
-
-
-function applyFilters(){
-
-  filteredProducts =
-    allProducts.filter(product => {
-
-      const categoryMatch =
-        currentCategory === "Todos" ||
-        (
-          currentCategory === "Ofertas" &&
-          product.oldPrice
-        ) ||
-        normalizeText(product.category)
-          .includes(
-            normalizeText(currentCategory)
+            }
           );
 
-      const searchMatch =
-        !currentSearch ||
-        normalizeText(product.name)
-          .includes(currentSearch) ||
-        normalizeText(product.category)
-          .includes(currentSearch) ||
-        normalizeText(product.description)
-          .includes(currentSearch);
+        }catch(error){
 
-      return categoryMatch && searchMatch;
+          console.log(
+            "Error cargando:",
+            file,
+            error
+          );
 
-    });
+          return [];
+
+        }
+
+      }
+    );
+
+  const results =
+    await Promise.all(requests);
+
+  allProducts =
+    results.flat();
+
+  filteredProducts =
+    [...allProducts];
 
   renderProducts();
 
 }
 
+/* =========================
+   NORMALIZAR PRODUCTO
+========================= */
 
-function normalizeText(text){
+function normalizeProduct(
+  product,
+  category,
+  index
+){
 
-  return String(text || "")
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"");
+  let image =
+    product.imagen ||
+    "";
+
+  let gallery =
+    Array.isArray(product.galeria)
+      ? product.galeria
+      : [];
+
+  image =
+    convertImagePath(image);
+
+  gallery =
+    gallery.map(
+      convertImagePath
+    );
+
+  return {
+
+    id:
+      category +
+      "-" +
+      index +
+      "-" +
+      encodeURIComponent(
+        product.nombre ||
+        "producto"
+      ),
+
+    name:
+      product.nombre ||
+      "Producto",
+
+    image:
+      image ||
+      "logo%20garchez.jpeg",
+
+    gallery,
+
+    price:
+      product.precio ||
+      "Consultar",
+
+    oldPrice:
+      product.precio_anterior ||
+      "",
+
+    category,
+
+    sizes:
+      product.talla ||
+      "",
+
+    colors:
+      product.color ||
+      "",
+
+    description:
+      product.descripcion ||
+      "",
+
+    availability:
+      product.disponibilidad ||
+      "Disponible",
+
+    offer:
+      product.oferta === true
+
+  };
 
 }
 
+/* =========================
+   IMÁGENES CMS
+========================= */
+
+function convertImagePath(
+  path
+){
+
+  if(!path){
+
+    return "";
+
+  }
+
+  const value =
+    String(path).trim();
+
+  if(
+    value.startsWith("http://") ||
+    value.startsWith("https://")
+  ){
+
+    return value;
+
+  }
+
+  if(value.startsWith("/")){
+
+    return (
+      ASSETS_BASE +
+      value
+        .replace(/^\/+/,"")
+        .split("/")
+        .map(
+          part =>
+            encodeURIComponent(part)
+        )
+        .join("/")
+    );
+
+  }
+
+  return value;
+
+}
+
+/* =========================
+   RENDER PRODUCTOS
+========================= */
+
+function renderProducts(){
+
+  const container =
+    document.getElementById(
+      "productsContainer"
+    );
+
+  if(!filteredProducts.length){
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        <h3>
+          Aún no hay productos para mostrar
+        </h3>
+
+        <p>
+          Los productos publicados
+          aparecerán aquí automáticamente.
+        </p>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+  container.innerHTML =
+    filteredProducts
+      .map(
+        product => {
+
+          const index =
+            allProducts.findIndex(
+              item =>
+                item.id === product.id
+            );
+
+          return `
+
+            <article class="product">
+
+              <img
+                class="product-img"
+                src="${escapeHTML(product.image)}"
+                alt="${escapeHTML(product.name)}"
+                loading="lazy"
+                onerror="this.src='logo%20garchez.jpeg'"
+              >
+
+              <div class="product-info">
+
+                <div class="product-category">
+
+                  ${escapeHTML(
+                    product.category
+                  )}
+
+                </div>
+
+                <div class="product-name">
+
+                  ${escapeHTML(
+                    product.name
+                  )}
+
+                </div>
+
+                <div class="price">
+
+                  ${formatPrice(
+                    product.price
+                  )}
+
+                  ${
+                    product.oldPrice
+                    ?
+                    `
+                      <span class="old-price">
+                        ${formatPrice(
+                          product.oldPrice
+                        )}
+                      </span>
+                    `
+                    :
+                    ""
+                  }
+
+                </div>
+
+                <div class="product-actions">
+
+                  <button
+                    class="btn btn-cart"
+                    onclick="addToCartByIndex(${index})"
+                  >
+                    🛍️ Agregar
+                  </button>
+
+                  <button
+                    class="btn btn-buy"
+                    onclick="openProduct(${index})"
+                  >
+                    Ver
+                  </button>
+
+                </div>
+
+              </div>
+
+            </article>
+
+          `;
+
+        }
+      )
+      .join("");
+
+}
+
+/* =========================
+   FILTROS
+========================= */
+
+function filterCategory(
+  category
+){
+
+  currentCategory =
+    category;
+
+  document
+    .querySelectorAll(
+      ".filter"
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.textContent.trim() ===
+          category
+        );
+
+      }
+    );
+
+  applyFilters();
+
+}
+
+/* =========================
+   BUSCADOR
+========================= */
+
+function searchProducts(
+  text
+){
+
+  currentSearch =
+    normalizeText(text);
+
+  applyFilters();
+
+}
+
+/* =========================
+   APLICAR FILTROS
+========================= */
+
+function applyFilters(){
+
+  filteredProducts =
+    allProducts.filter(
+      product => {
+
+        const categoryText =
+          normalizeText(
+            product.category
+          );
+
+        let categoryMatch =
+          currentCategory ===
+          "Todos";
+
+        if(
+          currentCategory !==
+          "Todos"
+        ){
+
+          if(
+            currentCategory ===
+            "Ofertas"
+          ){
+
+            categoryMatch =
+              product.offer === true ||
+              Boolean(
+                product.oldPrice
+              );
+
+          }else{
+
+            categoryMatch =
+              categoryText.includes(
+                normalizeText(
+                  currentCategory
+                )
+              );
+
+          }
+
+        }
+
+        const searchMatch =
+          !currentSearch ||
+
+          normalizeText(
+            product.name
+          ).includes(
+            currentSearch
+          ) ||
+
+          normalizeText(
+            product.category
+          ).includes(
+            currentSearch
+          ) ||
+
+          normalizeText(
+            product.description
+          ).includes(
+            currentSearch
+          );
+
+        return (
+          categoryMatch &&
+          searchMatch
+        );
+
+      }
+    );
+
+  renderProducts();
+
+}
 
 /* =========================
    MODAL
 ========================= */
 
-function openProduct(index){
+function openProduct(
+  index
+){
 
-  const product = allProducts[index];
+  const product =
+    allProducts[index];
 
-  if(!product) return;
+  if(!product){
 
-  currentModalProduct = product;
+    return;
 
-  document.getElementById("modalImage").src =
+  }
+
+  currentModalProduct =
+    product;
+
+  const modal =
+    document.getElementById(
+      "productModal"
+    );
+
+  const image =
+    document.getElementById(
+      "modalImage"
+    );
+
+  image.src =
     product.image;
 
-  document.getElementById("modalImage").onerror =
-    function(){
-      this.src = "logo%20garchez.jpeg";
-    };
-
-  document.getElementById("modalCategory").textContent =
-    product.category;
-
-  document.getElementById("modalName").textContent =
+  image.alt =
     product.name;
 
-  document.getElementById("modalPrice").innerHTML =
-    formatPrice(product.price) +
+  image.onerror =
+    function(){
+
+      this.src =
+        "logo%20garchez.jpeg";
+
+    };
+
+  document.getElementById(
+    "modalCategory"
+  ).textContent =
+    product.category;
+
+  document.getElementById(
+    "modalName"
+  ).textContent =
+    product.name;
+
+  document.getElementById(
+    "modalPrice"
+  ).innerHTML =
+
+    formatPrice(
+      product.price
+    ) +
+
     (
       product.oldPrice
       ?
-      `<span class="old-price">
-        ${formatPrice(product.oldPrice)}
-      </span>`
+      `
+        <span class="old-price">
+          ${formatPrice(
+            product.oldPrice
+          )}
+        </span>
+      `
       :
       ""
     );
 
-  document.getElementById("modalDescription").textContent =
-    product.description || "";
+  document.getElementById(
+    "modalDescription"
+  ).textContent =
+    product.description ||
+    "";
 
-  document.getElementById("modalData").innerHTML = `
+  document.getElementById(
+    "modalData"
+  ).innerHTML = `
 
     ${
       product.sizes
       ?
-      `<strong>Tallas:</strong>
-       ${escapeHTML(product.sizes)}<br>`
+      `
+        <strong>
+          Talla:
+        </strong>
+        ${escapeHTML(
+          product.sizes
+        )}
+        <br>
+      `
       :
       ""
     }
@@ -1339,54 +1961,108 @@ function openProduct(index){
     ${
       product.colors
       ?
-      `<strong>Colores:</strong>
-       ${escapeHTML(product.colors)}`
+      `
+        <strong>
+          Color:
+        </strong>
+        ${escapeHTML(
+          product.colors
+        )}
+        <br>
+      `
       :
       ""
     }
 
+    <strong>
+      Disponibilidad:
+    </strong>
+    ${escapeHTML(
+      product.availability
+    )}
+
   `;
 
-  document
-    .getElementById("productModal")
-    .classList.add("show");
+  modal.classList.add(
+    "show"
+  );
 
 }
-
 
 function closeModal(){
 
   document
-    .getElementById("productModal")
-    .classList.remove("show");
+    .getElementById(
+      "productModal"
+    )
+    .classList.remove(
+      "show"
+    );
+
+  currentModalProduct =
+    null;
 
 }
 
+document
+  .getElementById(
+    "productModal"
+  )
+  .addEventListener(
+    "click",
+    event => {
 
-function addModalToCart(){
+      if(
+        event.target.id ===
+        "productModal"
+      ){
 
-  if(!currentModalProduct) return;
+        closeModal();
 
-  addToCart(currentModalProduct);
+      }
 
-  closeModal();
+    }
+  );
 
-  openCart();
-
-}
-
+/* =========================
+   WHATSAPP PRODUCTO
+========================= */
 
 function buyModalProduct(){
 
-  if(!currentModalProduct) return;
+  if(!currentModalProduct){
+
+    return;
+
+  }
+
+  const product =
+    currentModalProduct;
 
   const message =
+
 `Hola, GarChéz Boutique 👋
 
 Me interesa este producto:
 
-🛍️ ${currentModalProduct.name}
-💰 ${formatPrice(currentModalProduct.price)}
+🛍️ ${product.name}
+💰 ${formatPrice(product.price)}
+
+${
+  product.sizes
+  ?
+  `📏 Talla: ${product.sizes}\n`
+  :
+  ""
+}
+
+${
+  product.colors
+  ?
+  `🎨 Color: ${product.colors}\n`
+  :
+  ""
+}
 
 ¿Me pueden dar más información?`;
 
@@ -1394,32 +2070,61 @@ Me interesa este producto:
     "https://wa.me/" +
     PHONE +
     "?text=" +
-    encodeURIComponent(message),
+    encodeURIComponent(
+      message
+    ),
     "_blank"
   );
 
 }
 
-
 /* =========================
    CARRITO
 ========================= */
 
-function addToCartByIndex(index){
+function addToCartByIndex(
+  index
+){
 
-  const product = allProducts[index];
+  const product =
+    allProducts[index];
 
   if(product){
+
     addToCart(product);
+
   }
 
 }
 
+function addModalToCart(){
 
-function addToCart(product){
+  if(
+    currentModalProduct
+  ){
+
+    addToCart(
+      currentModalProduct
+    );
+
+    closeModal();
+
+    openCart();
+
+  }
+
+}
+
+function addToCart(
+  product
+){
 
   const existing =
-    cart.find(item => item.id === product.id);
+    cart.find(
+      item =>
+        item.id ===
+        product.id
+    );
 
   if(existing){
 
@@ -1428,8 +2133,11 @@ function addToCart(product){
   }else{
 
     cart.push({
+
       ...product,
+
       quantity:1
+
     });
 
   }
@@ -1440,20 +2148,39 @@ function addToCart(product){
 
 }
 
+/* =========================
+   CAMBIAR CANTIDAD
+========================= */
 
-function changeQuantity(id, amount){
+function changeQuantity(
+  id,
+  amount
+){
 
   const item =
-    cart.find(product => product.id === id);
+    cart.find(
+      product =>
+        product.id === id
+    );
 
-  if(!item) return;
+  if(!item){
 
-  item.quantity += amount;
+    return;
 
-  if(item.quantity <= 0){
+  }
+
+  item.quantity +=
+    amount;
+
+  if(
+    item.quantity <= 0
+  ){
 
     cart =
-      cart.filter(product => product.id !== id);
+      cart.filter(
+        product =>
+          product.id !== id
+      );
 
   }
 
@@ -1463,11 +2190,19 @@ function changeQuantity(id, amount){
 
 }
 
+/* =========================
+   ELIMINAR
+========================= */
 
-function removeFromCart(id){
+function removeFromCart(
+  id
+){
 
   cart =
-    cart.filter(product => product.id !== id);
+    cart.filter(
+      product =>
+        product.id !== id
+    );
 
   saveCart();
 
@@ -1475,6 +2210,9 @@ function removeFromCart(id){
 
 }
 
+/* =========================
+   GUARDAR CARRITO
+========================= */
 
 function saveCart(){
 
@@ -1485,107 +2223,183 @@ function saveCart(){
 
 }
 
+/* =========================
+   CARGAR CARRITO
+========================= */
+
+function loadCart(){
+
+  try{
+
+    const saved =
+      localStorage.getItem(
+        "garchez_cart"
+      );
+
+    cart =
+      saved
+      ?
+      JSON.parse(saved)
+      :
+      [];
+
+  }catch(error){
+
+    cart = [];
+
+  }
+
+  updateCart();
+
+}
+
+/* =========================
+   ACTUALIZAR CARRITO
+========================= */
 
 function updateCart(){
 
   const count =
     cart.reduce(
-      (total,item) =>
-        total + item.quantity,
+      (
+        total,
+        item
+      ) =>
+        total +
+        item.quantity,
       0
     );
 
-  document.getElementById("cartCount")
-    .textContent = count;
+  document.getElementById(
+    "cartCount"
+  ).textContent =
+    count;
 
   const container =
-    document.getElementById("cartItems");
+    document.getElementById(
+      "cartItems"
+    );
 
   if(!cart.length){
 
     container.innerHTML = `
+
       <div class="cart-empty">
-        🛍️<br><br>
+
+        🛍️
+
+        <br><br>
+
         Tu carrito está vacío.
+
       </div>
+
     `;
 
   }else{
 
     container.innerHTML =
-      cart.map(item => `
 
-        <div class="cart-item">
+      cart
+        .map(
+          item => `
 
-          <img
-            src="${escapeHTML(item.image)}"
-            alt="${escapeHTML(item.name)}"
-            onerror="this.src='logo%20garchez.jpeg'"
-          >
+            <div class="cart-item">
 
-          <div>
+              <img
+                src="${escapeHTML(
+                  item.image
+                )}"
+                alt="${escapeHTML(
+                  item.name
+                )}"
+                onerror="this.src='logo%20garchez.jpeg'"
+              >
 
-            <h4>
-              ${escapeHTML(item.name)}
-            </h4>
+              <div>
 
-            <div class="cart-item-price">
-              ${formatPrice(item.price)}
-            </div>
+                <h4>
+                  ${escapeHTML(
+                    item.name
+                  )}
+                </h4>
 
-            <div class="qty">
+                <div class="cart-item-price">
+
+                  ${formatPrice(
+                    item.price
+                  )}
+
+                </div>
+
+                <div class="qty">
+
+                  <button
+                    onclick="changeQuantity('${escapeJS(item.id)}',-1)"
+                  >
+                    −
+                  </button>
+
+                  <span>
+                    ${item.quantity}
+                  </span>
+
+                  <button
+                    onclick="changeQuantity('${escapeJS(item.id)}',1)"
+                  >
+                    +
+                  </button>
+
+                </div>
+
+              </div>
 
               <button
-                onclick="changeQuantity('${escapeJS(item.id)}',-1)"
+                class="remove"
+                onclick="removeFromCart('${escapeJS(item.id)}')"
               >
-                −
-              </button>
-
-              <span>
-                ${item.quantity}
-              </span>
-
-              <button
-                onclick="changeQuantity('${escapeJS(item.id)}',1)"
-              >
-                +
+                ×
               </button>
 
             </div>
 
-          </div>
-
-          <button
-            class="remove"
-            onclick="removeFromCart('${escapeJS(item.id)}')"
-          >
-            ×
-          </button>
-
-        </div>
-
-      `).join("");
+          `
+        )
+        .join("");
 
   }
 
-  document.getElementById("cartTotal")
-    .textContent =
-      "C$" +
-      cartTotal().toLocaleString("es-NI");
+  document.getElementById(
+    "cartTotal"
+  ).textContent =
+
+    "C$" +
+    cartTotal()
+      .toLocaleString(
+        "es-NI"
+      );
 
 }
 
+/* =========================
+   TOTAL
+========================= */
 
 function cartTotal(){
 
   return cart.reduce(
-    (total,item) => {
+    (
+      total,
+      item
+    ) => {
 
-      const price =
-        parsePrice(item.price);
-
-      return total +
-        price * item.quantity;
+      return (
+        total +
+        parsePrice(
+          item.price
+        ) *
+        item.quantity
+      );
 
     },
     0
@@ -1593,18 +2407,98 @@ function cartTotal(){
 
 }
 
+/* =========================
+   PRECIO
+========================= */
 
-function parsePrice(value){
+function parsePrice(
+  value
+){
+
+  const text =
+    String(
+      value || ""
+    );
 
   const number =
-    String(value || "")
-      .replace(/[^\d.,]/g,"")
-      .replace(/,/g,"");
+    text
+      .replace(
+        /[^\d.,]/g,
+        ""
+      )
+      .replace(
+        /,/g,
+        ""
+      );
 
-  return parseFloat(number) || 0;
+  return (
+    parseFloat(
+      number
+    ) || 0
+  );
 
 }
 
+function formatPrice(
+  value
+){
+
+  if(
+    value === undefined ||
+    value === null ||
+    value === ""
+  ){
+
+    return "Consultar";
+
+  }
+
+  const text =
+    String(
+      value
+    ).trim();
+
+  if(
+    text === "..." ||
+    text === "...."
+  ){
+
+    return "Consultar";
+
+  }
+
+  if(
+    /[a-zA-Z]/.test(text) &&
+    !/C\$/i.test(text)
+  ){
+
+    return escapeHTML(
+      text
+    );
+
+  }
+
+  const number =
+    parsePrice(
+      text
+    );
+
+  if(number){
+
+    return (
+      "C$" +
+      number.toLocaleString(
+        "es-NI"
+      )
+    );
+
+  }
+
+  return escapeHTML(
+    text
+  );
+
+}
 
 /* =========================
    WHATSAPP CARRITO
@@ -1614,161 +2508,178 @@ function checkoutWhatsApp(){
 
   if(!cart.length){
 
-    alert("Tu carrito está vacío.");
+    alert(
+      "Tu carrito está vacío."
+    );
 
     return;
 
   }
 
   let message =
+
 `Hola, GarChéz Boutique 👋
 
 Quiero realizar este pedido:
 
 `;
 
-  cart.forEach(item => {
+  cart.forEach(
+    item => {
 
-    message +=
+      message +=
+
 `🛍️ ${item.name}
 Cantidad: ${item.quantity}
 Precio: ${formatPrice(item.price)}
 
 `;
 
-  });
+    }
+  );
 
   message +=
+
 `💰 Total aproximado: C$${cartTotal().toLocaleString("es-NI")}
 
-🚚 Envío a toda 🇳🇮 Nicaragua.
+🚚 Envíos a toda 🇳🇮 Nicaragua.
 📍 Envío GRATIS en Chinandega y El Viejo 🇳🇮
 
 Quedo pendiente de la confirmación.`;
 
   window.open(
+
     "https://wa.me/" +
     PHONE +
     "?text=" +
-    encodeURIComponent(message),
+    encodeURIComponent(
+      message
+    ),
+
     "_blank"
+
   );
 
 }
 
-
 /* =========================
-   CARRITO ABRIR/CERRAR
+   ABRIR CARRITO
 ========================= */
 
 function openCart(){
 
   document
-    .getElementById("cartDrawer")
-    .classList.add("open");
+    .getElementById(
+      "cartDrawer"
+    )
+    .classList.add(
+      "open"
+    );
 
   document
-    .getElementById("overlay")
-    .classList.add("show");
+    .getElementById(
+      "overlay"
+    )
+    .classList.add(
+      "show"
+    );
 
 }
 
+/* =========================
+   CERRAR CARRITO
+========================= */
 
 function closeCart(){
 
   document
-    .getElementById("cartDrawer")
-    .classList.remove("open");
+    .getElementById(
+      "cartDrawer"
+    )
+    .classList.remove(
+      "open"
+    );
 
   document
-    .getElementById("overlay")
-    .classList.remove("show");
+    .getElementById(
+      "overlay"
+    )
+    .classList.remove(
+      "show"
+    );
 
 }
-
 
 /* =========================
    UTILIDADES
 ========================= */
 
-function formatPrice(value){
+function normalizeText(
+  text
+){
 
-  if(value === undefined ||
-     value === null ||
-     value === ""){
-
-    return "Consultar";
-
-  }
-
-  const text = String(value).trim();
-
-  if(/[a-zA-Z]/.test(text) &&
-     !text.match(/C\$/i)){
-
-    return escapeHTML(text);
-
-  }
-
-  const number = parsePrice(text);
-
-  if(number){
-
-    return "C$" +
-      number.toLocaleString("es-NI");
-
-  }
-
-  return escapeHTML(text);
+  return String(
+    text || ""
+  )
+    .toLowerCase()
+    .normalize(
+      "NFD"
+    )
+    .replace(
+      /[\u0300-\u036f]/g,
+      ""
+    )
+    .trim();
 
 }
 
+function escapeHTML(
+  value
+){
 
-function escapeHTML(value){
-
-  return String(value || "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  return String(
+    value || ""
+  )
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
+function escapeJS(
+  value
+){
 
-function escapeJS(value){
-
-  return String(value || "")
-    .replace(/\\/g,"\\\\")
-    .replace(/'/g,"\\'");
+  return String(
+    value || ""
+  )
+    .replace(
+      /\\/g,
+      "\\\\"
+    )
+    .replace(
+      /'/g,
+      "\\'"
+    );
 
 }
-
-
-/* =========================
-   INICIO
-========================= */
-
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
-
-    loadProducts();
-
-    updateCart();
-
-  }
-);
-
-document
-  .getElementById("productModal")
-  .addEventListener("click",function(e){
-
-    if(e.target === this){
-      closeModal();
-    }
-
-  });
 
 </script>
 
